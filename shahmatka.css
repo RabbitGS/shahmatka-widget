@@ -1,0 +1,180 @@
+/* ===== Шахматка — виджет выбора квартир (тёмная тема) ===== */
+.shm {
+  --shm-bg: #0c141d;
+  --shm-card: #131e29;
+  --shm-card-2: #1a2734;
+  --shm-fg: #eef3f8;
+  --shm-muted: #8295a6;
+  --shm-line: #243443;
+  --shm-accent: #1f9fd6;
+  --shm-radius: 12px;
+  --shm-cell: 64px;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--shm-fg);
+  background: var(--shm-bg);
+  padding: 22px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+.shm *, .shm *::before, .shm *::after { box-sizing: inherit; }
+
+/* ---------- ГЕНПЛАН (рендер + пины) ---------- */
+.shm-gp { position: relative; border-radius: var(--shm-radius); overflow: hidden; background: #0a1119; }
+.shm-gp__img { display: block; width: 100%; height: auto; }
+.shm-gp__fallback { padding: 80px 24px; text-align: center; color: var(--shm-muted); font-size: 14px; line-height: 1.6; }
+.shm-gp__marker {
+  position: absolute; transform: translate(-50%, -100%);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: none; border: none; cursor: pointer; padding: 0; font-family: inherit;
+}
+.shm-gp__pill {
+  background: rgba(13, 22, 31, .82); color: #fff; backdrop-filter: blur(3px);
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 7px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0,0,0,.4); transition: all .14s ease;
+}
+.shm-gp__marker:hover .shm-gp__pill { background: var(--shm-accent); border-color: var(--shm-accent); transform: translateY(-2px); }
+.shm-gp__pill small { display: block; font-size: 11px; font-weight: 500; opacity: .8; margin-top: 1px; }
+.shm-gp__pin { width: 2px; height: 14px; background: rgba(13,22,31,.82); }
+.shm-gp__marker.is-soldout { cursor: default; }
+.shm-gp__marker.is-soldout:hover .shm-gp__pill { background: rgba(13,22,31,.82); border-color: rgba(255,255,255,.18); transform: none; }
+.shm-gp__title { margin: 0 0 4px; font-size: 22px; font-weight: 700; }
+.shm-gp__sub { margin: 0 0 16px; font-size: 14px; color: var(--shm-muted); }
+
+/* ---------- Шапка экрана выбора ---------- */
+.shm__back {
+  appearance: none; border: none; background: none; padding: 0 0 8px;
+  color: var(--shm-accent); font-size: 14px; cursor: pointer; font-family: inherit;
+}
+.shm__back:hover { text-decoration: underline; }
+
+/* ---------- Панель фильтров ---------- */
+.shm__filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 18px; margin-bottom: 22px; }
+.shm__fgroup { display: flex; flex-direction: column; gap: 7px; }
+.shm__flabel { font-size: 12px; color: var(--shm-muted); font-weight: 500; }
+.shm__select, .shm__sortsel {
+  appearance: none; background: var(--shm-card-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%238295a6' stroke-width='1.6'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 14px center;
+  color: var(--shm-fg); border: 1px solid var(--shm-line); border-radius: 10px;
+  padding: 11px 34px 11px 14px; font-size: 14px; font-family: inherit; cursor: pointer; min-width: 168px;
+}
+.shm__rooms { display: flex; gap: 6px; }
+.shm__room {
+  width: 44px; height: 44px; border: 1px solid var(--shm-line); background: var(--shm-card-2);
+  color: var(--shm-fg); border-radius: 10px; font-size: 15px; cursor: pointer; font-family: inherit; transition: all .12s ease;
+}
+.shm__room:hover { border-color: var(--shm-accent); }
+.shm__room.is-active { background: var(--shm-accent); border-color: var(--shm-accent); color: #fff; }
+
+/* двойной слайдер */
+.shm__range { width: 196px; }
+.shm__range-vals { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+.shm__range-track { position: relative; height: 22px; }
+.shm__range-rail { position: absolute; top: 9px; left: 0; right: 0; height: 4px; background: var(--shm-line); border-radius: 2px; }
+.shm__range-fill { position: absolute; top: 9px; height: 4px; background: var(--shm-accent); border-radius: 2px; }
+.shm__range input[type=range] {
+  position: absolute; top: 0; left: 0; width: 100%; margin: 0; height: 22px; background: none;
+  -webkit-appearance: none; appearance: none; pointer-events: none;
+}
+.shm__range input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; pointer-events: auto; width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--shm-accent); cursor: pointer; margin-top: 0;
+}
+.shm__range input[type=range]::-moz-range-thumb {
+  pointer-events: auto; width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--shm-accent); cursor: pointer;
+}
+.shm__reset {
+  background: var(--shm-accent); color: #fff; border: none; border-radius: 10px;
+  padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; height: 44px;
+}
+.shm__reset:hover { filter: brightness(1.08); }
+
+/* ---------- Результаты ---------- */
+.shm__resbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.shm__rescount { font-size: 17px; font-weight: 600; }
+.shm__rescount span { color: var(--shm-muted); font-weight: 400; }
+.shm__tabs { display: flex; gap: 6px; }
+.shm__tab { padding: 8px 16px; border: 1px solid var(--shm-line); background: var(--shm-card-2); color: var(--shm-fg);
+  border-radius: 999px; font-size: 13px; cursor: pointer; font-family: inherit; }
+.shm__tab.is-active { background: var(--shm-accent); border-color: var(--shm-accent); }
+.shm__sort { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--shm-muted); }
+
+/* карточки планировок */
+.shm__cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 18px; }
+.shm__card { background: var(--shm-card); border: 1px solid var(--shm-line); border-radius: var(--shm-radius);
+  overflow: hidden; cursor: pointer; transition: transform .12s ease, border-color .12s ease; }
+.shm__card:hover { transform: translateY(-3px); border-color: var(--shm-accent); }
+.shm__card-plan { position: relative; background: #fff; height: 230px; display: flex; align-items: center; justify-content: center; }
+.shm__card-plan svg { width: 78%; height: 78%; }
+.shm__heart { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(12,20,29,.78); border: none; cursor: pointer; color: #fff; font-size: 15px; line-height: 1; }
+.shm__heart:hover, .shm__heart.is-on { color: #ff6b6b; }
+.shm__rooms-badge { position: absolute; left: 12px; top: 12px; background: rgba(12,20,29,.78); color: #fff;
+  font-size: 12px; padding: 4px 10px; border-radius: 999px; }
+.shm__card-body { padding: 16px; }
+.shm__card-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.shm__card-area { font-size: 18px; font-weight: 700; }
+.shm__card-area sup { font-size: 11px; font-weight: 500; color: var(--shm-muted); }
+.shm__card-price { font-size: 18px; font-weight: 700; white-space: nowrap; }
+.shm__card-sub { display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--shm-muted); }
+.shm__card-promo { margin-top: 10px; display: inline-block; font-size: 12px; color: #ffd166; border: 1px solid #6b5a1f;
+  background: #2a2410; padding: 3px 9px; border-radius: 6px; }
+.shm__empty { padding: 50px; text-align: center; color: var(--shm-muted); }
+
+/* ---------- Шахматка (сетка) ---------- */
+.shm__grid-wrap { overflow-x: auto; border: 1px solid var(--shm-line); border-radius: var(--shm-radius); background: var(--shm-card); }
+.shm__grid { border-collapse: separate; border-spacing: 6px; padding: 10px; min-width: max-content; }
+.shm__riser-head, .shm__floor-head { font-size: 12px; font-weight: 600; color: var(--shm-muted); text-align: center; padding: 4px 8px; }
+.shm__floor-head { text-align: right; white-space: nowrap; }
+.shm__cell { width: var(--shm-cell); height: var(--shm-cell); border-radius: 8px; border: none; cursor: pointer;
+  color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 4px;
+  transition: transform .1s ease, box-shadow .1s ease; font-family: inherit; }
+.shm__cell:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.4); z-index: 2; }
+.shm__cell-num { font-size: 15px; font-weight: 700; line-height: 1; }
+.shm__cell-meta { font-size: 10px; opacity: .92; line-height: 1; }
+.shm__cell--empty { background: transparent !important; cursor: default; }
+.shm__cell--empty:hover { transform: none; box-shadow: none; }
+.shm__cell--sold { cursor: default; opacity: .4; }
+.shm__cell--sold:hover { transform: none; box-shadow: none; }
+.shm__cell.is-dimmed { opacity: .12; pointer-events: none; }
+
+/* ---------- Панель карточки ---------- */
+.shm__overlay { position: fixed; inset: 0; background: rgba(4,8,12,.6); opacity: 0; visibility: hidden;
+  transition: opacity .2s ease; z-index: 9998; }
+.shm__overlay.is-open { opacity: 1; visibility: visible; }
+.shm__panel { position: fixed; top: 0; right: 0; height: 100%; width: 400px; max-width: 92vw;
+  background: var(--shm-card); color: var(--shm-fg); z-index: 9999; box-shadow: -8px 0 32px rgba(0,0,0,.5);
+  transform: translateX(100%); transition: transform .24s ease; display: flex; flex-direction: column; overflow-y: auto; }
+.shm__panel.is-open { transform: translateX(0); }
+.shm__panel-head { display: flex; align-items: flex-start; justify-content: space-between; padding: 22px 22px 0; }
+.shm__panel-title { font-size: 20px; font-weight: 700; margin: 0; }
+.shm__panel-sub { font-size: 13px; color: var(--shm-muted); margin: 4px 0 0; }
+.shm__close { appearance: none; border: none; background: var(--shm-card-2); width: 34px; height: 34px; border-radius: 50%;
+  font-size: 18px; cursor: pointer; color: var(--shm-fg); flex: none; }
+.shm__close:hover { background: var(--shm-line); }
+.shm__plan { margin: 18px 22px; background: #fff; border-radius: var(--shm-radius); height: 230px;
+  display: flex; align-items: center; justify-content: center; }
+.shm__plan svg { width: 80%; height: 80%; }
+.shm__badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #fff; }
+.shm__specs { list-style: none; margin: 0; padding: 0 22px; }
+.shm__spec { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--shm-line); font-size: 14px; }
+.shm__spec span { color: var(--shm-muted); }
+.shm__price { padding: 18px 22px; }
+.shm__price-val { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.shm__price-meta { font-size: 13px; color: var(--shm-muted); margin-top: 2px; }
+.shm__flatlist { list-style: none; margin: 0; padding: 0 22px; }
+.shm__flatrow { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 12px 0; border-bottom: 1px solid var(--shm-line); font-size: 14px; }
+.shm__flat-pick { background: var(--shm-accent); border: none; color: #fff; border-radius: 8px; padding: 7px 14px;
+  font-size: 13px; cursor: pointer; font-family: inherit; }
+.shm__flat-pick:hover { filter: brightness(1.08); }
+.shm__cta { margin: auto 22px 22px; padding: 15px; border: none; border-radius: var(--shm-radius);
+  background: var(--shm-accent); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.shm__cta:hover { filter: brightness(1.06); }
+
+.shm__error { padding: 24px; color: #ff7b7b; font-size: 14px; }
+
+@media (max-width: 600px) {
+  .shm { --shm-cell: 56px; padding: 14px; }
+  .shm__range { width: 150px; }
+}

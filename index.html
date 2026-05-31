@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шахматка — демо</title>
+  <link rel="stylesheet" href="shahmatka.css">
+  <style>
+    body { margin: 0; background: #060b11; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .page { max-width: 1180px; margin: 28px auto; padding: 0 18px; }
+    .page__note { font-size: 13px; color: #6b7785; margin-top: 22px; line-height: 1.6; }
+    .page__note code { color: #9fb3c4; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div id="shahmatka"></div>
+    <p class="page__note">
+      Демо виджета «Шахматка»: генплан с пинами этапов → выбор квартиры (фильтры, карточки планировок, шахматка).
+      Данные — <code>data.json</code>. Кнопка заявки прокидывается в колбэк <code>onLead</code> (форма / CRM / Метрика-цель).<br>
+      Для генплана положите рендер ЖК как <code>genplan.jpg</code> рядом со скриптами.
+    </p>
+  </div>
+
+  <script src="shahmatka.js"></script>
+  <script>
+    Shahmatka.init({
+      container: '#shahmatka',
+      dataUrl: 'data.json',
+      onLead: function (flat) {
+        alert('Заявка: кв. №' + flat.number + ', ' + flat.area + ' м², ' + flat.price.toLocaleString('ru-RU') + ' ₽');
+      }
+    });
+  </script>
+</body>
+</html>

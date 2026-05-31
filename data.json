@@ -1,0 +1,1633 @@
+{
+  "project": "ЖК «Атмосфера»",
+  "currency": "₽",
+  "genplan": {
+    "image": "genplan.jpg",
+    "buildings": [
+      {
+        "id": "e1",
+        "name": "60 — 1 этап",
+        "tag": "дом сдан",
+        "floors_label": "13 этажей",
+        "xPct": 33.9,
+        "yPct": 54.0
+      },
+      {
+        "id": "e2",
+        "name": "60 — 2 этап",
+        "tag": null,
+        "floors_label": "9 этажей",
+        "xPct": 31.5,
+        "yPct": 40.3
+      },
+      {
+        "id": "e3",
+        "name": "60 — 3 этап",
+        "tag": null,
+        "floors_label": "16 этажей",
+        "xPct": 41.8,
+        "yPct": 26.2
+      }
+    ]
+  },
+  "statuses": {
+    "free": {
+      "label": "Свободна",
+      "color": "#3f9d58"
+    },
+    "reserved": {
+      "label": "Бронь",
+      "color": "#e0a312"
+    },
+    "sold": {
+      "label": "Продана",
+      "color": "#c0392b"
+    }
+  },
+  "flats": [
+    {
+      "id": "316001",
+      "number": "1",
+      "building": "e1",
+      "floor": 1,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4110000,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316002",
+      "number": "2",
+      "building": "e1",
+      "floor": 1,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5730000,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316003",
+      "number": "3",
+      "building": "e1",
+      "floor": 1,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6468000,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316004",
+      "number": "4",
+      "building": "e1",
+      "floor": 1,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8670000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316005",
+      "number": "5",
+      "building": "e1",
+      "floor": 2,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4126500,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316006",
+      "number": "6",
+      "building": "e1",
+      "floor": 2,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5753000,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316007",
+      "number": "7",
+      "building": "e1",
+      "floor": 2,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6493750,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316008",
+      "number": "8",
+      "building": "e1",
+      "floor": 2,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8704750,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316009",
+      "number": "9",
+      "building": "e1",
+      "floor": 3,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4143000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316010",
+      "number": "10",
+      "building": "e1",
+      "floor": 3,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5775750,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316011",
+      "number": "11",
+      "building": "e1",
+      "floor": 3,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6519750,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316012",
+      "number": "12",
+      "building": "e1",
+      "floor": 3,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8739250,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316013",
+      "number": "13",
+      "building": "e1",
+      "floor": 4,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4159250,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316014",
+      "number": "14",
+      "building": "e1",
+      "floor": 4,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5798750,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316015",
+      "number": "15",
+      "building": "e1",
+      "floor": 4,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6545500,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316016",
+      "number": "16",
+      "building": "e1",
+      "floor": 4,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8774000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316017",
+      "number": "17",
+      "building": "e1",
+      "floor": 5,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4175750,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316018",
+      "number": "18",
+      "building": "e1",
+      "floor": 5,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5821750,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316019",
+      "number": "19",
+      "building": "e1",
+      "floor": 5,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6571500,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316020",
+      "number": "20",
+      "building": "e1",
+      "floor": 5,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8808750,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316021",
+      "number": "21",
+      "building": "e1",
+      "floor": 6,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4192250,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316022",
+      "number": "22",
+      "building": "e1",
+      "floor": 6,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5844500,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316023",
+      "number": "23",
+      "building": "e1",
+      "floor": 6,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6597250,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316024",
+      "number": "24",
+      "building": "e1",
+      "floor": 6,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8843500,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316025",
+      "number": "25",
+      "building": "e1",
+      "floor": 7,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4208750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316026",
+      "number": "26",
+      "building": "e1",
+      "floor": 7,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5867500,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316027",
+      "number": "27",
+      "building": "e1",
+      "floor": 7,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6623250,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316028",
+      "number": "28",
+      "building": "e1",
+      "floor": 7,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8878000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316029",
+      "number": "29",
+      "building": "e1",
+      "floor": 8,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4225000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316030",
+      "number": "30",
+      "building": "e1",
+      "floor": 8,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5890500,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316031",
+      "number": "31",
+      "building": "e1",
+      "floor": 8,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6649000,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316032",
+      "number": "32",
+      "building": "e1",
+      "floor": 8,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8912750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316033",
+      "number": "33",
+      "building": "e1",
+      "floor": 9,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4241500,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316034",
+      "number": "34",
+      "building": "e1",
+      "floor": 9,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5913250,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316035",
+      "number": "35",
+      "building": "e1",
+      "floor": 9,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6675000,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316036",
+      "number": "36",
+      "building": "e1",
+      "floor": 9,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8947500,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316037",
+      "number": "37",
+      "building": "e1",
+      "floor": 10,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4258000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316038",
+      "number": "38",
+      "building": "e1",
+      "floor": 10,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5936250,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316039",
+      "number": "39",
+      "building": "e1",
+      "floor": 10,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6700750,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316040",
+      "number": "40",
+      "building": "e1",
+      "floor": 10,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 8982000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316041",
+      "number": "41",
+      "building": "e1",
+      "floor": 11,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4274500,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316042",
+      "number": "42",
+      "building": "e1",
+      "floor": 11,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5959250,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316043",
+      "number": "43",
+      "building": "e1",
+      "floor": 11,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6726750,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316044",
+      "number": "44",
+      "building": "e1",
+      "floor": 11,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 9016750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316045",
+      "number": "45",
+      "building": "e1",
+      "floor": 12,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4290750,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316046",
+      "number": "46",
+      "building": "e1",
+      "floor": 12,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5982000,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316047",
+      "number": "47",
+      "building": "e1",
+      "floor": 12,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6752500,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316048",
+      "number": "48",
+      "building": "e1",
+      "floor": 12,
+      "riser": 4,
+      "rooms": 3,
+      "area": 86.7,
+      "price": 9051500,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316049",
+      "number": "49",
+      "building": "e1",
+      "floor": 13,
+      "riser": 1,
+      "rooms": 0,
+      "area": 29.8,
+      "price": 5012500,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж",
+        "Угловая"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316050",
+      "number": "50",
+      "building": "e1",
+      "floor": 13,
+      "riser": 2,
+      "rooms": 1,
+      "area": 40.6,
+      "price": 6829000,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316051",
+      "number": "51",
+      "building": "e1",
+      "floor": 13,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.0,
+      "price": 7535500,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316052",
+      "number": "52",
+      "building": "e1",
+      "floor": 13,
+      "riser": 4,
+      "rooms": 3,
+      "area": 89.1,
+      "price": 9991250,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж",
+        "Угловая"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316053",
+      "number": "53",
+      "building": "e2",
+      "floor": 1,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4110000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316054",
+      "number": "54",
+      "building": "e2",
+      "floor": 1,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5730000,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316055",
+      "number": "55",
+      "building": "e2",
+      "floor": 1,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6468000,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316056",
+      "number": "56",
+      "building": "e2",
+      "floor": 2,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4126500,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316057",
+      "number": "57",
+      "building": "e2",
+      "floor": 2,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5753000,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316058",
+      "number": "58",
+      "building": "e2",
+      "floor": 2,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6493750,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316059",
+      "number": "59",
+      "building": "e2",
+      "floor": 3,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4143000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316060",
+      "number": "60",
+      "building": "e2",
+      "floor": 3,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5775750,
+      "status": "sold",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316061",
+      "number": "61",
+      "building": "e2",
+      "floor": 3,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6519750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316062",
+      "number": "62",
+      "building": "e2",
+      "floor": 4,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4159250,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316063",
+      "number": "63",
+      "building": "e2",
+      "floor": 4,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5798750,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316064",
+      "number": "64",
+      "building": "e2",
+      "floor": 4,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6545500,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316065",
+      "number": "65",
+      "building": "e2",
+      "floor": 5,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4175750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316066",
+      "number": "66",
+      "building": "e2",
+      "floor": 5,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5821750,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316067",
+      "number": "67",
+      "building": "e2",
+      "floor": 5,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6571500,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316068",
+      "number": "68",
+      "building": "e2",
+      "floor": 6,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4192250,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316069",
+      "number": "69",
+      "building": "e2",
+      "floor": 6,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5844500,
+      "status": "reserved",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316070",
+      "number": "70",
+      "building": "e2",
+      "floor": 6,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6597250,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316071",
+      "number": "71",
+      "building": "e2",
+      "floor": 7,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4208750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316072",
+      "number": "72",
+      "building": "e2",
+      "floor": 7,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5867500,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316073",
+      "number": "73",
+      "building": "e2",
+      "floor": 7,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6623250,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316074",
+      "number": "74",
+      "building": "e2",
+      "floor": 8,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4225000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316075",
+      "number": "75",
+      "building": "e2",
+      "floor": 8,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5890500,
+      "status": "free",
+      "finishing": "черновая"
+    },
+    {
+      "id": "316076",
+      "number": "76",
+      "building": "e2",
+      "floor": 8,
+      "riser": 3,
+      "rooms": 2,
+      "area": 61.6,
+      "price": 6649000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316077",
+      "number": "77",
+      "building": "e2",
+      "floor": 9,
+      "riser": 1,
+      "rooms": 0,
+      "area": 29.8,
+      "price": 4936000,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж",
+        "Угловая"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316078",
+      "number": "78",
+      "building": "e2",
+      "floor": 9,
+      "riser": 2,
+      "rooms": 1,
+      "area": 40.6,
+      "price": 6724750,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316079",
+      "number": "79",
+      "building": "e2",
+      "floor": 9,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.0,
+      "price": 7420500,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж",
+        "Угловая"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316080",
+      "number": "80",
+      "building": "e3",
+      "floor": 1,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4110000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316081",
+      "number": "81",
+      "building": "e3",
+      "floor": 1,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5730000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316082",
+      "number": "82",
+      "building": "e3",
+      "floor": 2,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4126500,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316083",
+      "number": "83",
+      "building": "e3",
+      "floor": 2,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5753000,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316084",
+      "number": "84",
+      "building": "e3",
+      "floor": 3,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4143000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316085",
+      "number": "85",
+      "building": "e3",
+      "floor": 3,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5775750,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316086",
+      "number": "86",
+      "building": "e3",
+      "floor": 4,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4159250,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316087",
+      "number": "87",
+      "building": "e3",
+      "floor": 4,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5798750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316088",
+      "number": "88",
+      "building": "e3",
+      "floor": 5,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4175750,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316089",
+      "number": "89",
+      "building": "e3",
+      "floor": 5,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5821750,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316090",
+      "number": "90",
+      "building": "e3",
+      "floor": 6,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4192250,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316091",
+      "number": "91",
+      "building": "e3",
+      "floor": 6,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5844500,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316092",
+      "number": "92",
+      "building": "e3",
+      "floor": 7,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4208750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316093",
+      "number": "93",
+      "building": "e3",
+      "floor": 7,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5867500,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316094",
+      "number": "94",
+      "building": "e3",
+      "floor": 8,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4225000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316095",
+      "number": "95",
+      "building": "e3",
+      "floor": 8,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5890500,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316096",
+      "number": "96",
+      "building": "e3",
+      "floor": 9,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4241500,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316097",
+      "number": "97",
+      "building": "e3",
+      "floor": 9,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5913250,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316098",
+      "number": "98",
+      "building": "e3",
+      "floor": 10,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4258000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316099",
+      "number": "99",
+      "building": "e3",
+      "floor": 10,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5936250,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316100",
+      "number": "100",
+      "building": "e3",
+      "floor": 11,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4274500,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316101",
+      "number": "101",
+      "building": "e3",
+      "floor": 11,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5959250,
+      "status": "sold",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316102",
+      "number": "102",
+      "building": "e3",
+      "floor": 12,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4290750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316103",
+      "number": "103",
+      "building": "e3",
+      "floor": 12,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 5982000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316104",
+      "number": "104",
+      "building": "e3",
+      "floor": 13,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4307250,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316105",
+      "number": "105",
+      "building": "e3",
+      "floor": 13,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 6005000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316106",
+      "number": "106",
+      "building": "e3",
+      "floor": 14,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4323750,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316107",
+      "number": "107",
+      "building": "e3",
+      "floor": 14,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 6028000,
+      "status": "reserved",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316108",
+      "number": "108",
+      "building": "e3",
+      "floor": 15,
+      "riser": 1,
+      "rooms": 0,
+      "area": 27.4,
+      "price": 4340250,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316109",
+      "number": "109",
+      "building": "e3",
+      "floor": 15,
+      "riser": 2,
+      "rooms": 1,
+      "area": 38.2,
+      "price": 6051000,
+      "status": "free",
+      "finishing": "черновая",
+      "features": [
+        "Угловая"
+      ]
+    },
+    {
+      "id": "316110",
+      "number": "110",
+      "building": "e3",
+      "floor": 16,
+      "riser": 1,
+      "rooms": 0,
+      "area": 29.8,
+      "price": 5069750,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж",
+        "Угловая"
+      ],
+      "promo": "Скидка 5%"
+    },
+    {
+      "id": "316111",
+      "number": "111",
+      "building": "e3",
+      "floor": 16,
+      "riser": 2,
+      "rooms": 1,
+      "area": 40.6,
+      "price": 6907250,
+      "status": "free",
+      "finishing": "чистовая",
+      "features": [
+        "Последний этаж",
+        "Угловая"
+      ],
+      "promo": "Скидка 5%"
+    }
+  ]
+}
