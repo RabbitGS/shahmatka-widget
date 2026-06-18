@@ -27,6 +27,14 @@
     return out.join(', ');
   }
 
+  // реальный техплан (webp) если есть, иначе SVG-схема + пометка
+  function planMedia(flat) {
+    if (flat && flat.plan) {
+      return '<img class="shm__planimg" src="' + esc(flat.plan) + '" alt="Планировка ' + roomsLabel(flat.rooms) + '" loading="lazy">';
+    }
+    return planSvg(flat ? flat.rooms : 0) + '<span class="shm__plan-note">Планировка уточняется в отделе продаж</span>';
+  }
+
   // схематичная планировка (заглушка вместо реального чертежа)
   function planSvg(rooms) {
     var st = 'stroke="#16384c" stroke-width="3" fill="none" stroke-linejoin="round"';
@@ -330,7 +338,7 @@
         '<div class="shm__card-plan">' +
           '<span class="shm__rooms-badge">' + roomsLabel(one.rooms) + '</span>' +
           '<button class="shm__heart' + (fav ? ' is-on' : '') + '" data-fav="' + esc(k) + '">' + (fav ? '♥' : '♡') + '</button>' +
-          planSvg(one.rooms) +
+          planMedia(one) +
         '</div>' +
         '<div class="shm__card-body">' +
           '<div class="shm__card-row"><span class="shm__card-area">' + one.area + ' <sup>м²</sup></span>' +
@@ -410,7 +418,7 @@
     html += '<h3 class="shm__panel-title">' + roomsLabel(one.rooms) + ' · ' + one.area + ' м²</h3>';
     html += '<p class="shm__panel-sub">' + esc(bld ? bld.name : '') + ' · ' + one.finishing + ' отделка</p>';
     html += '</div><button class="shm__close" aria-label="Закрыть">×</button></div>';
-    html += '<div class="shm__plan">' + planSvg(one.rooms) + '</div>';
+    html += '<div class="shm__plan">' + planMedia(one) + '</div>';
     html += '<div class="shm__price"><div class="shm__price-val">от ' + money(minP) + ' ' + cur + '</div>';
     html += '<div class="shm__price-meta">' + money(minP / one.area) + ' ' + cur + ' / м² · доступно ' + group.length + '</div></div>';
     html += '<div style="padding:0 22px 6px;font-size:13px;color:var(--shm-muted)">Свободные квартиры этой планировки:</div>';
@@ -444,7 +452,7 @@
     html += '<h3 class="shm__panel-title">Квартира №' + esc(flat.number) + '</h3>';
     html += '<p class="shm__panel-sub">' + esc(bld ? bld.name : '') + ' · ' + roomsLabel(flat.rooms) + ' · ' + flat.floor + ' этаж</p>';
     html += '</div><button class="shm__close" aria-label="Закрыть">×</button></div>';
-    html += '<div class="shm__plan">' + planSvg(flat.rooms) + '</div>';
+    html += '<div class="shm__plan">' + planMedia(flat) + '</div>';
     html += '<div style="padding:0 22px"><span class="shm__badge" style="background:' + (st.color || '#999') + '">' + esc(st.label) + '</span></div>';
     html += '<ul class="shm__specs">';
     html += '<li class="shm__spec"><span>Площадь</span><b>' + flat.area + ' м²</b></li>';

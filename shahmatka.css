@@ -106,6 +106,9 @@
 .shm__card:hover { transform: translateY(-3px); border-color: var(--shm-accent); }
 .shm__card-plan { position: relative; background: #fff; height: 230px; display: flex; align-items: center; justify-content: center; }
 .shm__card-plan svg { width: 78%; height: 78%; }
+.shm__planimg { width: 100%; height: 100%; object-fit: contain; padding: 10px; box-sizing: border-box; background: #fff; }
+.shm__plan-note { position: absolute; left: 0; right: 0; bottom: 0; padding: 7px 10px; font-size: 11px; text-align: center;
+  color: #5a6b7a; background: rgba(255,255,255,.92); border-top: 1px solid #e4e9ee; }
 .shm__heart { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%;
   background: rgba(12,20,29,.78); border: none; cursor: pointer; color: #fff; font-size: 15px; line-height: 1; }
 .shm__heart:hover, .shm__heart.is-on { color: #ff6b6b; }
@@ -152,9 +155,10 @@
 .shm__close { appearance: none; border: none; background: var(--shm-card-2); width: 34px; height: 34px; border-radius: 50%;
   font-size: 18px; cursor: pointer; color: var(--shm-fg); flex: none; }
 .shm__close:hover { background: var(--shm-line); }
-.shm__plan { margin: 18px 22px; background: #fff; border-radius: var(--shm-radius); height: 230px;
-  display: flex; align-items: center; justify-content: center; }
+.shm__plan { position: relative; margin: 18px 22px; background: #fff; border-radius: var(--shm-radius); height: 230px;
+  overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .shm__plan svg { width: 80%; height: 80%; }
+.shm__plan .shm__planimg { padding: 14px; }
 .shm__badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #fff; }
 .shm__specs { list-style: none; margin: 0; padding: 0 22px; }
 .shm__spec { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--shm-line); font-size: 14px; }

@@ -1,32 +1,40 @@
 {
-  "project": "ЖК «Атмосфера»",
+  "project": "ЖК «Крылья»",
   "currency": "₽",
   "genplan": {
     "image": "genplan.jpg",
     "buildings": [
       {
-        "id": "e1",
-        "name": "60 — 1 этап",
-        "tag": "дом сдан",
-        "floors_label": "13 этажей",
-        "xPct": 33.9,
-        "yPct": 54.0
+        "id": "p7",
+        "name": "Подъезд 7",
+        "tag": "секция 1",
+        "floors_label": "10 этажей · 19 кв.",
+        "xPct": 29.0,
+        "yPct": 40.0
       },
       {
-        "id": "e2",
-        "name": "60 — 2 этап",
-        "tag": null,
-        "floors_label": "9 этажей",
-        "xPct": 31.5,
-        "yPct": 40.3
+        "id": "p8",
+        "name": "Подъезд 8",
+        "tag": "секция 1",
+        "floors_label": "10 этажей · 28 кв.",
+        "xPct": 41.0,
+        "yPct": 30.0
       },
       {
-        "id": "e3",
-        "name": "60 — 3 этап",
-        "tag": null,
-        "floors_label": "16 этажей",
-        "xPct": 41.8,
-        "yPct": 26.2
+        "id": "p9",
+        "name": "Подъезд 9",
+        "tag": "секция 2",
+        "floors_label": "10 этажей · 23 кв.",
+        "xPct": 57.0,
+        "yPct": 25.0
+      },
+      {
+        "id": "p10",
+        "name": "Подъезд 10",
+        "tag": "секция 2",
+        "floors_label": "10 этажей · 27 кв.",
+        "xPct": 68.0,
+        "yPct": 20.0
       }
     ]
   },
@@ -46,1588 +54,1301 @@
   },
   "flats": [
     {
-      "id": "316001",
-      "number": "1",
-      "building": "e1",
+      "id": "kr251",
+      "number": "251",
+      "building": "p7",
       "floor": 1,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4110000,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316002",
-      "number": "2",
-      "building": "e1",
-      "floor": 1,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5730000,
-      "status": "sold",
-      "finishing": "черновая"
+      "area": 44.33,
+      "price": 5452590,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp"
     },
     {
-      "id": "316003",
-      "number": "3",
-      "building": "e1",
+      "id": "kr252",
+      "number": "252",
+      "building": "p7",
       "floor": 1,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6468000,
-      "status": "sold",
-      "finishing": "черновая"
+      "area": 83.05,
+      "price": 9550750,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_83_p7.webp"
     },
     {
-      "id": "316004",
-      "number": "4",
-      "building": "e1",
-      "floor": 1,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8670000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316005",
-      "number": "5",
-      "building": "e1",
+      "id": "kr254",
+      "number": "254",
+      "building": "p7",
       "floor": 2,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4126500,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316006",
-      "number": "6",
-      "building": "e1",
-      "floor": 2,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5753000,
-      "status": "reserved",
-      "finishing": "черновая"
+      "area": 44.33,
+      "price": 5452590,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp"
     },
     {
-      "id": "316007",
-      "number": "7",
-      "building": "e1",
+      "id": "kr255",
+      "number": "255",
+      "building": "p7",
       "floor": 2,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6493750,
+      "area": 83.05,
+      "price": 9550750,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_83_p7.webp"
     },
     {
-      "id": "316008",
-      "number": "8",
-      "building": "e1",
-      "floor": 2,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8704750,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316009",
-      "number": "9",
-      "building": "e1",
+      "id": "kr257",
+      "number": "257",
+      "building": "p7",
       "floor": 3,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4143000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316010",
-      "number": "10",
-      "building": "e1",
-      "floor": 3,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5775750,
-      "status": "sold",
-      "finishing": "черновая"
+      "area": 44.33,
+      "price": 5452590,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp"
     },
     {
-      "id": "316011",
-      "number": "11",
-      "building": "e1",
+      "id": "kr258",
+      "number": "258",
+      "building": "p7",
       "floor": 3,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6519750,
-      "status": "sold",
-      "finishing": "черновая"
+      "area": 83.05,
+      "price": 9550750,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_83_p7.webp"
     },
     {
-      "id": "316012",
-      "number": "12",
-      "building": "e1",
-      "floor": 3,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8739250,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316013",
-      "number": "13",
-      "building": "e1",
+      "id": "kr260",
+      "number": "260",
+      "building": "p7",
       "floor": 4,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4159250,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316014",
-      "number": "14",
-      "building": "e1",
-      "floor": 4,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5798750,
-      "status": "sold",
-      "finishing": "черновая"
+      "area": 44.33,
+      "price": 5452590,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp"
     },
     {
-      "id": "316015",
-      "number": "15",
-      "building": "e1",
+      "id": "kr261",
+      "number": "261",
+      "building": "p7",
       "floor": 4,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6545500,
-      "status": "reserved",
-      "finishing": "черновая"
+      "area": 83.05,
+      "price": 9550750,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_83_p7.webp"
     },
     {
-      "id": "316016",
-      "number": "16",
-      "building": "e1",
-      "floor": 4,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8774000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316017",
-      "number": "17",
-      "building": "e1",
+      "id": "kr263",
+      "number": "263",
+      "building": "p7",
       "floor": 5,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4175750,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "rooms": 1,
+      "area": 44.33,
+      "price": 5452590,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp"
     },
     {
-      "id": "316018",
-      "number": "18",
-      "building": "e1",
+      "id": "kr265",
+      "number": "265",
+      "building": "p7",
       "floor": 5,
       "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5821750,
-      "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316019",
-      "number": "19",
-      "building": "e1",
-      "floor": 5,
-      "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6571500,
+      "area": 72.52,
+      "price": 8629880,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_72_5_p7.webp"
     },
     {
-      "id": "316020",
-      "number": "20",
-      "building": "e1",
-      "floor": 5,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8808750,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316021",
-      "number": "21",
-      "building": "e1",
+      "id": "kr266",
+      "number": "266",
+      "building": "p7",
       "floor": 6,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4192250,
+      "rooms": 1,
+      "area": 44.33,
+      "price": 5452590,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp"
     },
     {
-      "id": "316022",
-      "number": "22",
-      "building": "e1",
+      "id": "kr268",
+      "number": "268",
+      "building": "p7",
       "floor": 6,
       "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5844500,
-      "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316023",
-      "number": "23",
-      "building": "e1",
-      "floor": 6,
-      "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6597250,
-      "status": "reserved",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316024",
-      "number": "24",
-      "building": "e1",
-      "floor": 6,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8843500,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316025",
-      "number": "25",
-      "building": "e1",
-      "floor": 7,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4208750,
+      "area": 72.52,
+      "price": 8629880,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_72_5_p7.webp"
     },
     {
-      "id": "316026",
-      "number": "26",
-      "building": "e1",
-      "floor": 7,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5867500,
-      "status": "reserved",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316027",
-      "number": "27",
-      "building": "e1",
+      "id": "kr270",
+      "number": "270",
+      "building": "p7",
       "floor": 7,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6623250,
-      "status": "sold",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316028",
-      "number": "28",
-      "building": "e1",
-      "floor": 7,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8878000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316029",
-      "number": "29",
-      "building": "e1",
-      "floor": 8,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4225000,
+      "area": 83.05,
+      "price": 9550750,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_83_p7.webp"
     },
     {
-      "id": "316030",
-      "number": "30",
-      "building": "e1",
-      "floor": 8,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5890500,
-      "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316031",
-      "number": "31",
-      "building": "e1",
-      "floor": 8,
-      "riser": 3,
-      "rooms": 2,
-      "area": 61.6,
-      "price": 6649000,
-      "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316032",
-      "number": "32",
-      "building": "e1",
-      "floor": 8,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8912750,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316033",
-      "number": "33",
-      "building": "e1",
+      "id": "kr275",
+      "number": "275",
+      "building": "p7",
       "floor": 9,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4241500,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316034",
-      "number": "34",
-      "building": "e1",
-      "floor": 9,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5913250,
+      "area": 44.33,
+      "price": 5452590,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp"
     },
     {
-      "id": "316035",
-      "number": "35",
-      "building": "e1",
+      "id": "kr276",
+      "number": "276",
+      "building": "p7",
       "floor": 9,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6675000,
-      "status": "reserved",
-      "finishing": "черновая"
+      "area": 83.05,
+      "price": 9550750,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_83_p7.webp"
     },
     {
-      "id": "316036",
-      "number": "36",
-      "building": "e1",
+      "id": "kr277",
+      "number": "277",
+      "building": "p7",
       "floor": 9,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8947500,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316037",
-      "number": "37",
-      "building": "e1",
-      "floor": 10,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4258000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316038",
-      "number": "38",
-      "building": "e1",
-      "floor": 10,
       "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5936250,
-      "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316039",
-      "number": "39",
-      "building": "e1",
-      "floor": 10,
-      "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6700750,
+      "area": 72.52,
+      "price": 8629880,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_72_5_p7.webp"
     },
     {
-      "id": "316040",
-      "number": "40",
-      "building": "e1",
+      "id": "kr278",
+      "number": "278",
+      "building": "p7",
       "floor": 10,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 8982000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316041",
-      "number": "41",
-      "building": "e1",
-      "floor": 11,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4274500,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316042",
-      "number": "42",
-      "building": "e1",
-      "floor": 11,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5959250,
-      "status": "reserved",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316043",
-      "number": "43",
-      "building": "e1",
-      "floor": 11,
-      "riser": 3,
-      "rooms": 2,
-      "area": 61.6,
-      "price": 6726750,
+      "area": 44.33,
+      "price": 5452590,
       "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316044",
-      "number": "44",
-      "building": "e1",
-      "floor": 11,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 9016750,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316045",
-      "number": "45",
-      "building": "e1",
-      "floor": 12,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4290750,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316046",
-      "number": "46",
-      "building": "e1",
-      "floor": 12,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5982000,
-      "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316047",
-      "number": "47",
-      "building": "e1",
-      "floor": 12,
-      "riser": 3,
-      "rooms": 2,
-      "area": 61.6,
-      "price": 6752500,
-      "status": "reserved",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316048",
-      "number": "48",
-      "building": "e1",
-      "floor": 12,
-      "riser": 4,
-      "rooms": 3,
-      "area": 86.7,
-      "price": 9051500,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316049",
-      "number": "49",
-      "building": "e1",
-      "floor": 13,
-      "riser": 1,
-      "rooms": 0,
-      "area": 29.8,
-      "price": 5012500,
-      "status": "free",
-      "finishing": "чистовая",
-      "features": [
-        "Последний этаж",
-        "Угловая"
-      ],
-      "promo": "Скидка 5%"
-    },
-    {
-      "id": "316050",
-      "number": "50",
-      "building": "e1",
-      "floor": 13,
-      "riser": 2,
-      "rooms": 1,
-      "area": 40.6,
-      "price": 6829000,
-      "status": "free",
-      "finishing": "чистовая",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_3_p7.webp",
       "features": [
         "Последний этаж"
-      ],
-      "promo": "Скидка 5%"
+      ]
     },
     {
-      "id": "316051",
-      "number": "51",
-      "building": "e1",
-      "floor": 13,
+      "id": "kr279",
+      "number": "279",
+      "building": "p7",
+      "floor": 10,
       "riser": 3,
       "rooms": 2,
-      "area": 64.0,
-      "price": 7535500,
+      "area": 83.05,
+      "price": 9550750,
       "status": "free",
-      "finishing": "чистовая",
+      "finishing": "под ключ",
+      "plan": "plans/p_83_p7.webp",
       "features": [
         "Последний этаж"
-      ],
-      "promo": "Скидка 5%"
+      ]
     },
     {
-      "id": "316052",
-      "number": "52",
-      "building": "e1",
-      "floor": 13,
+      "id": "kr280",
+      "number": "280",
+      "building": "p7",
+      "floor": 10,
+      "riser": 2,
+      "rooms": 2,
+      "area": 72.52,
+      "price": 8629880,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_72_5_p7.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr281",
+      "number": "281",
+      "building": "p8",
+      "floor": 1,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p8.webp"
+    },
+    {
+      "id": "kr284",
+      "number": "284",
+      "building": "p8",
+      "floor": 2,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p8.webp"
+    },
+    {
+      "id": "kr285",
+      "number": "285",
+      "building": "p8",
+      "floor": 2,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr286",
+      "number": "286",
+      "building": "p8",
+      "floor": 2,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr287",
+      "number": "287",
+      "building": "p8",
+      "floor": 2,
+      "riser": 4,
+      "rooms": 2,
+      "area": 71.07,
+      "price": 8457330,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_71_07_p8.webp"
+    },
+    {
+      "id": "kr288",
+      "number": "288",
+      "building": "p8",
+      "floor": 3,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p8.webp"
+    },
+    {
+      "id": "kr289",
+      "number": "289",
+      "building": "p8",
+      "floor": 3,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr290",
+      "number": "290",
+      "building": "p8",
+      "floor": 3,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr292",
+      "number": "292",
+      "building": "p8",
+      "floor": 4,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p8.webp"
+    },
+    {
+      "id": "kr293",
+      "number": "293",
+      "building": "p8",
+      "floor": 4,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr294",
+      "number": "294",
+      "building": "p8",
+      "floor": 4,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr295",
+      "number": "295",
+      "building": "p8",
+      "floor": 4,
+      "riser": 4,
+      "rooms": 2,
+      "area": 71.07,
+      "price": 8457330,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_71_07_p8.webp"
+    },
+    {
+      "id": "kr299",
+      "number": "299",
+      "building": "p8",
+      "floor": 5,
+      "riser": 4,
+      "rooms": 2,
+      "area": 71.07,
+      "price": 8457330,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_71_07_p8.webp"
+    },
+    {
+      "id": "kr302",
+      "number": "302",
+      "building": "p8",
+      "floor": 6,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr303",
+      "number": "303",
+      "building": "p8",
+      "floor": 6,
+      "riser": 4,
+      "rooms": 2,
+      "area": 71.07,
+      "price": 8457330,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_71_07_p8.webp"
+    },
+    {
+      "id": "kr305",
+      "number": "305",
+      "building": "p8",
+      "floor": 7,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr306",
+      "number": "306",
+      "building": "p8",
+      "floor": 7,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr307",
+      "number": "307",
+      "building": "p8",
+      "floor": 7,
+      "riser": 4,
+      "rooms": 2,
+      "area": 71.07,
+      "price": 8457330,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_71_07_p8.webp"
+    },
+    {
+      "id": "kr309",
+      "number": "309",
+      "building": "p8",
+      "floor": 8,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr310",
+      "number": "310",
+      "building": "p8",
+      "floor": 8,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr312",
+      "number": "312",
+      "building": "p8",
+      "floor": 9,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p8.webp"
+    },
+    {
+      "id": "kr313",
+      "number": "313",
+      "building": "p8",
+      "floor": 9,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr314",
+      "number": "314",
+      "building": "p8",
+      "floor": 9,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp"
+    },
+    {
+      "id": "kr315",
+      "number": "315",
+      "building": "p8",
+      "floor": 9,
+      "riser": 4,
+      "rooms": 2,
+      "area": 71.07,
+      "price": 8457330,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_71_07_p8.webp"
+    },
+    {
+      "id": "kr316",
+      "number": "316",
+      "building": "p8",
+      "floor": 10,
+      "riser": 3,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p8.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr317",
+      "number": "317",
+      "building": "p8",
+      "floor": 10,
+      "riser": 1,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr318",
+      "number": "318",
+      "building": "p8",
+      "floor": 10,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p8.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr319",
+      "number": "319",
+      "building": "p8",
+      "floor": 10,
+      "riser": 4,
+      "rooms": 2,
+      "area": 71.07,
+      "price": 8457330,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_71_07_p8.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr320",
+      "number": "320",
+      "building": "p9",
+      "floor": 1,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr321",
+      "number": "321",
+      "building": "p9",
+      "floor": 1,
+      "riser": 1,
+      "rooms": 1,
+      "area": 41.34,
+      "price": 5084820,
+      "status": "free",
+      "finishing": "под ключ"
+    },
+    {
+      "id": "kr322",
+      "number": "322",
+      "building": "p9",
+      "floor": 1,
+      "riser": 4,
+      "rooms": 2,
+      "area": 63.59,
+      "price": 7567210,
+      "status": "free",
+      "finishing": "под ключ"
+    },
+    {
+      "id": "kr323",
+      "number": "323",
+      "building": "p9",
+      "floor": 2,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr324",
+      "number": "324",
+      "building": "p9",
+      "floor": 2,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp"
+    },
+    {
+      "id": "kr325",
+      "number": "325",
+      "building": "p9",
+      "floor": 2,
+      "riser": 3,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp"
+    },
+    {
+      "id": "kr326",
+      "number": "326",
+      "building": "p9",
+      "floor": 2,
+      "riser": 6,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr327",
+      "number": "327",
+      "building": "p9",
+      "floor": 3,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr329",
+      "number": "329",
+      "building": "p9",
+      "floor": 3,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp"
+    },
+    {
+      "id": "kr330",
+      "number": "330",
+      "building": "p9",
+      "floor": 3,
+      "riser": 6,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr335",
+      "number": "335",
+      "building": "p9",
+      "floor": 5,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr338",
+      "number": "338",
+      "building": "p9",
+      "floor": 5,
+      "riser": 6,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr339",
+      "number": "339",
+      "building": "p9",
+      "floor": 6,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr340",
+      "number": "340",
+      "building": "p9",
+      "floor": 6,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp"
+    },
+    {
+      "id": "kr343",
+      "number": "343",
+      "building": "p9",
+      "floor": 7,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr348",
+      "number": "348",
+      "building": "p9",
+      "floor": 8,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp"
+    },
+    {
+      "id": "kr349",
+      "number": "349",
+      "building": "p9",
+      "floor": 8,
+      "riser": 3,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp"
+    },
+    {
+      "id": "kr351",
+      "number": "351",
+      "building": "p9",
+      "floor": 9,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr352",
+      "number": "352",
+      "building": "p9",
+      "floor": 9,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp"
+    },
+    {
+      "id": "kr354",
+      "number": "354",
+      "building": "p9",
+      "floor": 9,
+      "riser": 6,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp"
+    },
+    {
+      "id": "kr355",
+      "number": "355",
+      "building": "p9",
+      "floor": 10,
+      "riser": 5,
+      "rooms": 2,
+      "area": 64.86,
+      "price": 7718340,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_64_8_p9.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr356",
+      "number": "356",
+      "building": "p9",
+      "floor": 10,
+      "riser": 2,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr357",
+      "number": "357",
+      "building": "p9",
+      "floor": 10,
+      "riser": 3,
+      "rooms": 1,
+      "area": 45.38,
+      "price": 5581740,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_45_3_p9.webp",
+      "features": [
+        "Последний этаж"
+      ]
+    },
+    {
+      "id": "kr359",
+      "number": "359",
+      "building": "p10",
+      "floor": 1,
+      "riser": 1,
+      "rooms": 1,
+      "area": 44.13,
+      "price": 5427990,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp"
+    },
+    {
+      "id": "kr360",
+      "number": "360",
+      "building": "p10",
+      "floor": 1,
+      "riser": 5,
+      "rooms": 3,
+      "area": 91.83,
+      "price": 10560450,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_91_8_p10.webp"
+    },
+    {
+      "id": "kr362",
+      "number": "362",
+      "building": "p10",
+      "floor": 1,
+      "riser": 2,
+      "rooms": 2,
+      "area": 63.59,
+      "price": 7567210,
+      "status": "free",
+      "finishing": "под ключ"
+    },
+    {
+      "id": "kr363",
+      "number": "363",
+      "building": "p10",
+      "floor": 2,
+      "riser": 1,
+      "rooms": 1,
+      "area": 44.13,
+      "price": 5427990,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp"
+    },
+    {
+      "id": "kr364",
+      "number": "364",
+      "building": "p10",
+      "floor": 2,
+      "riser": 5,
+      "rooms": 3,
+      "area": 91.83,
+      "price": 10560450,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_91_8_p10.webp"
+    },
+    {
+      "id": "kr365",
+      "number": "365",
+      "building": "p10",
+      "floor": 2,
+      "riser": 3,
+      "rooms": 2,
+      "area": 69.43,
+      "price": 8262170,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_69_4_p10.webp"
+    },
+    {
+      "id": "kr366",
+      "number": "366",
+      "building": "p10",
+      "floor": 2,
       "riser": 4,
       "rooms": 3,
-      "area": 89.1,
-      "price": 9991250,
+      "area": 90.38,
+      "price": 10393700,
       "status": "free",
-      "finishing": "чистовая",
-      "features": [
-        "Последний этаж",
-        "Угловая"
-      ],
-      "promo": "Скидка 5%"
+      "finishing": "под ключ",
+      "plan": "plans/p_90_p10.webp"
     },
     {
-      "id": "316053",
-      "number": "53",
-      "building": "e2",
-      "floor": 1,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4110000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316054",
-      "number": "54",
-      "building": "e2",
-      "floor": 1,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5730000,
+      "id": "kr368",
+      "number": "368",
+      "building": "p10",
+      "floor": 3,
+      "riser": 5,
+      "rooms": 3,
+      "area": 91.83,
+      "price": 10560450,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_91_8_p10.webp"
     },
     {
-      "id": "316055",
-      "number": "55",
-      "building": "e2",
-      "floor": 1,
-      "riser": 3,
-      "rooms": 2,
-      "area": 61.6,
-      "price": 6468000,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316056",
-      "number": "56",
-      "building": "e2",
-      "floor": 2,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4126500,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316057",
-      "number": "57",
-      "building": "e2",
-      "floor": 2,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5753000,
-      "status": "sold",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316058",
-      "number": "58",
-      "building": "e2",
-      "floor": 2,
-      "riser": 3,
-      "rooms": 2,
-      "area": 61.6,
-      "price": 6493750,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316059",
-      "number": "59",
-      "building": "e2",
-      "floor": 3,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4143000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316060",
-      "number": "60",
-      "building": "e2",
-      "floor": 3,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5775750,
-      "status": "sold",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316061",
-      "number": "61",
-      "building": "e2",
+      "id": "kr369",
+      "number": "369",
+      "building": "p10",
       "floor": 3,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6519750,
+      "area": 69.43,
+      "price": 8262170,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_69_4_p10.webp"
     },
     {
-      "id": "316062",
-      "number": "62",
-      "building": "e2",
+      "id": "kr371",
+      "number": "371",
+      "building": "p10",
       "floor": 4,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4159250,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316063",
-      "number": "63",
-      "building": "e2",
-      "floor": 4,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5798750,
+      "area": 44.13,
+      "price": 5427990,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp"
     },
     {
-      "id": "316064",
-      "number": "64",
-      "building": "e2",
+      "id": "kr374",
+      "number": "374",
+      "building": "p10",
       "floor": 4,
-      "riser": 3,
-      "rooms": 2,
-      "area": 61.6,
-      "price": 6545500,
+      "riser": 4,
+      "rooms": 3,
+      "area": 90.38,
+      "price": 10393700,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_90_p10.webp"
     },
     {
-      "id": "316065",
-      "number": "65",
-      "building": "e2",
+      "id": "kr376",
+      "number": "376",
+      "building": "p10",
       "floor": 5,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4175750,
+      "riser": 5,
+      "rooms": 3,
+      "area": 91.83,
+      "price": 10560450,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_91_8_p10.webp"
     },
     {
-      "id": "316066",
-      "number": "66",
-      "building": "e2",
-      "floor": 5,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5821750,
-      "status": "free",
-      "finishing": "черновая"
-    },
-    {
-      "id": "316067",
-      "number": "67",
-      "building": "e2",
+      "id": "kr377",
+      "number": "377",
+      "building": "p10",
       "floor": 5,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6571500,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "area": 69.43,
+      "price": 8262170,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_69_4_p10.webp"
     },
     {
-      "id": "316068",
-      "number": "68",
-      "building": "e2",
+      "id": "kr379",
+      "number": "379",
+      "building": "p10",
       "floor": 6,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4192250,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316069",
-      "number": "69",
-      "building": "e2",
-      "floor": 6,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5844500,
-      "status": "reserved",
-      "finishing": "черновая"
+      "area": 44.13,
+      "price": 5427990,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp"
     },
     {
-      "id": "316070",
-      "number": "70",
-      "building": "e2",
+      "id": "kr380",
+      "number": "380",
+      "building": "p10",
+      "floor": 6,
+      "riser": 5,
+      "rooms": 3,
+      "area": 91.83,
+      "price": 10560450,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_91_8_p10.webp"
+    },
+    {
+      "id": "kr381",
+      "number": "381",
+      "building": "p10",
       "floor": 6,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6597250,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "area": 69.43,
+      "price": 8262170,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_69_4_p10.webp"
     },
     {
-      "id": "316071",
-      "number": "71",
-      "building": "e2",
+      "id": "kr383",
+      "number": "383",
+      "building": "p10",
       "floor": 7,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4208750,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316072",
-      "number": "72",
-      "building": "e2",
-      "floor": 7,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5867500,
+      "area": 44.13,
+      "price": 5427990,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp"
     },
     {
-      "id": "316073",
-      "number": "73",
-      "building": "e2",
+      "id": "kr385",
+      "number": "385",
+      "building": "p10",
       "floor": 7,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6623250,
+      "area": 69.43,
+      "price": 8262170,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_69_4_p10.webp"
     },
     {
-      "id": "316074",
-      "number": "74",
-      "building": "e2",
+      "id": "kr386",
+      "number": "386",
+      "building": "p10",
+      "floor": 7,
+      "riser": 4,
+      "rooms": 3,
+      "area": 90.38,
+      "price": 10393700,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_90_p10.webp"
+    },
+    {
+      "id": "kr387",
+      "number": "387",
+      "building": "p10",
       "floor": 8,
       "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4225000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316075",
-      "number": "75",
-      "building": "e2",
-      "floor": 8,
-      "riser": 2,
       "rooms": 1,
-      "area": 38.2,
-      "price": 5890500,
+      "area": 44.13,
+      "price": 5427990,
       "status": "free",
-      "finishing": "черновая"
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp"
     },
     {
-      "id": "316076",
-      "number": "76",
-      "building": "e2",
+      "id": "kr389",
+      "number": "389",
+      "building": "p10",
       "floor": 8,
       "riser": 3,
       "rooms": 2,
-      "area": 61.6,
-      "price": 6649000,
+      "area": 69.43,
+      "price": 8262170,
       "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
+      "finishing": "под ключ",
+      "plan": "plans/p_69_4_p10.webp"
     },
     {
-      "id": "316077",
-      "number": "77",
-      "building": "e2",
+      "id": "kr391",
+      "number": "391",
+      "building": "p10",
       "floor": 9,
       "riser": 1,
-      "rooms": 0,
-      "area": 29.8,
-      "price": 4936000,
+      "rooms": 1,
+      "area": 44.13,
+      "price": 5427990,
       "status": "free",
-      "finishing": "чистовая",
-      "features": [
-        "Последний этаж",
-        "Угловая"
-      ],
-      "promo": "Скидка 5%"
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp"
     },
     {
-      "id": "316078",
-      "number": "78",
-      "building": "e2",
+      "id": "kr392",
+      "number": "392",
+      "building": "p10",
       "floor": 9,
-      "riser": 2,
-      "rooms": 1,
-      "area": 40.6,
-      "price": 6724750,
+      "riser": 5,
+      "rooms": 3,
+      "area": 91.83,
+      "price": 10560450,
       "status": "free",
-      "finishing": "чистовая",
+      "finishing": "под ключ",
+      "plan": "plans/p_91_8_p10.webp"
+    },
+    {
+      "id": "kr394",
+      "number": "394",
+      "building": "p10",
+      "floor": 9,
+      "riser": 4,
+      "rooms": 3,
+      "area": 90.38,
+      "price": 10393700,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_90_p10.webp"
+    },
+    {
+      "id": "kr395",
+      "number": "395",
+      "building": "p10",
+      "floor": 10,
+      "riser": 1,
+      "rooms": 1,
+      "area": 44.13,
+      "price": 5427990,
+      "status": "free",
+      "finishing": "под ключ",
+      "plan": "plans/p_44_1_p10.webp",
       "features": [
         "Последний этаж"
-      ],
-      "promo": "Скидка 5%"
+      ]
     },
     {
-      "id": "316079",
-      "number": "79",
-      "building": "e2",
-      "floor": 9,
+      "id": "kr397",
+      "number": "397",
+      "building": "p10",
+      "floor": 10,
       "riser": 3,
       "rooms": 2,
-      "area": 64.0,
-      "price": 7420500,
+      "area": 69.43,
+      "price": 8262170,
       "status": "free",
-      "finishing": "чистовая",
+      "finishing": "под ключ",
+      "plan": "plans/p_69_4_p10.webp",
       "features": [
-        "Последний этаж",
-        "Угловая"
-      ],
-      "promo": "Скидка 5%"
-    },
-    {
-      "id": "316080",
-      "number": "80",
-      "building": "e3",
-      "floor": 1,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4110000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
+        "Последний этаж"
       ]
     },
     {
-      "id": "316081",
-      "number": "81",
-      "building": "e3",
-      "floor": 1,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5730000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316082",
-      "number": "82",
-      "building": "e3",
-      "floor": 2,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4126500,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316083",
-      "number": "83",
-      "building": "e3",
-      "floor": 2,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5753000,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316084",
-      "number": "84",
-      "building": "e3",
-      "floor": 3,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4143000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316085",
-      "number": "85",
-      "building": "e3",
-      "floor": 3,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5775750,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316086",
-      "number": "86",
-      "building": "e3",
-      "floor": 4,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4159250,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316087",
-      "number": "87",
-      "building": "e3",
-      "floor": 4,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5798750,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316088",
-      "number": "88",
-      "building": "e3",
-      "floor": 5,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4175750,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316089",
-      "number": "89",
-      "building": "e3",
-      "floor": 5,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5821750,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316090",
-      "number": "90",
-      "building": "e3",
-      "floor": 6,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4192250,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316091",
-      "number": "91",
-      "building": "e3",
-      "floor": 6,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5844500,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316092",
-      "number": "92",
-      "building": "e3",
-      "floor": 7,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4208750,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316093",
-      "number": "93",
-      "building": "e3",
-      "floor": 7,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5867500,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316094",
-      "number": "94",
-      "building": "e3",
-      "floor": 8,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4225000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316095",
-      "number": "95",
-      "building": "e3",
-      "floor": 8,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5890500,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316096",
-      "number": "96",
-      "building": "e3",
-      "floor": 9,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4241500,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316097",
-      "number": "97",
-      "building": "e3",
-      "floor": 9,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5913250,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316098",
-      "number": "98",
-      "building": "e3",
+      "id": "kr398",
+      "number": "398",
+      "building": "p10",
       "floor": 10,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4258000,
+      "riser": 4,
+      "rooms": 3,
+      "area": 90.38,
+      "price": 10393700,
       "status": "free",
-      "finishing": "черновая",
+      "finishing": "под ключ",
+      "plan": "plans/p_90_p10.webp",
       "features": [
-        "Угловая"
+        "Последний этаж"
       ]
-    },
-    {
-      "id": "316099",
-      "number": "99",
-      "building": "e3",
-      "floor": 10,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5936250,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316100",
-      "number": "100",
-      "building": "e3",
-      "floor": 11,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4274500,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316101",
-      "number": "101",
-      "building": "e3",
-      "floor": 11,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5959250,
-      "status": "sold",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316102",
-      "number": "102",
-      "building": "e3",
-      "floor": 12,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4290750,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316103",
-      "number": "103",
-      "building": "e3",
-      "floor": 12,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 5982000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316104",
-      "number": "104",
-      "building": "e3",
-      "floor": 13,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4307250,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316105",
-      "number": "105",
-      "building": "e3",
-      "floor": 13,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 6005000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316106",
-      "number": "106",
-      "building": "e3",
-      "floor": 14,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4323750,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316107",
-      "number": "107",
-      "building": "e3",
-      "floor": 14,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 6028000,
-      "status": "reserved",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316108",
-      "number": "108",
-      "building": "e3",
-      "floor": 15,
-      "riser": 1,
-      "rooms": 0,
-      "area": 27.4,
-      "price": 4340250,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316109",
-      "number": "109",
-      "building": "e3",
-      "floor": 15,
-      "riser": 2,
-      "rooms": 1,
-      "area": 38.2,
-      "price": 6051000,
-      "status": "free",
-      "finishing": "черновая",
-      "features": [
-        "Угловая"
-      ]
-    },
-    {
-      "id": "316110",
-      "number": "110",
-      "building": "e3",
-      "floor": 16,
-      "riser": 1,
-      "rooms": 0,
-      "area": 29.8,
-      "price": 5069750,
-      "status": "free",
-      "finishing": "чистовая",
-      "features": [
-        "Последний этаж",
-        "Угловая"
-      ],
-      "promo": "Скидка 5%"
-    },
-    {
-      "id": "316111",
-      "number": "111",
-      "building": "e3",
-      "floor": 16,
-      "riser": 2,
-      "rooms": 1,
-      "area": 40.6,
-      "price": 6907250,
-      "status": "free",
-      "finishing": "чистовая",
-      "features": [
-        "Последний этаж",
-        "Угловая"
-      ],
-      "promo": "Скидка 5%"
     }
   ]
 }
