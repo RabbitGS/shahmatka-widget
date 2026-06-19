@@ -137,11 +137,16 @@
     this.view = 'cards';
 
     var roomTypes = uniq(all.map(function (f) { return f.rooms; })).sort(function (a, b) { return a - b; });
-    var bounds = {
-      price: [Math.min.apply(0, all.map(function (f) { return f.price; })), Math.max.apply(0, all.map(function (f) { return f.price; }))],
-      area:  [Math.min.apply(0, all.map(function (f) { return f.area; })),  Math.max.apply(0, all.map(function (f) { return f.area; }))],
-      floor: [Math.min.apply(0, all.map(function (f) { return f.floor; })), Math.max.apply(0, all.map(function (f) { return f.floor; }))]
-    };
+    // шаги ползунков (должны совпадать с rangeHtml ниже)
+    this.steps = { price: 250000, area: 0.1, floor: 1 };
+    // границы расширяем НАРУЖУ до кратного шага, иначе правый ползунок
+    // (range с дробным шагом) не доходит до реального max и отрезает крайние квартиры
+    function rng(key, step) {
+      var lo = Math.min.apply(0, all.map(function (f) { return f[key]; }));
+      var hi = Math.max.apply(0, all.map(function (f) { return f[key]; }));
+      return [Math.floor(lo / step) * step, Math.ceil((hi - 1e-9) / step) * step];
+    }
+    var bounds = { price: rng('price', 250000), area: rng('area', 0.1), floor: rng('floor', 1) };
     this.bounds = bounds;
     this.f = {
       house: buildingId || 'all', rooms: {}, price: bounds.price.slice(), area: bounds.area.slice(),
