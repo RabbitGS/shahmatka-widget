@@ -137,16 +137,16 @@
     this.view = 'cards';
 
     var roomTypes = uniq(all.map(function (f) { return f.rooms; })).sort(function (a, b) { return a - b; });
-    // шаги ползунков (должны совпадать с rangeHtml ниже)
-    this.steps = { price: 250000, area: 0.1, floor: 1 };
-    // границы расширяем НАРУЖУ до кратного шага, иначе правый ползунок
-    // (range с дробным шагом) не доходит до реального max и отрезает крайние квартиры
+    // Границы расширяем НАРУЖУ до кратного шага, иначе правый ползунок
+    // не доходит до реального max и отрезает крайние квартиры.
+    // Шаги целочисленные (площадь — в целых м²): дробный шаг + float ломают
+    // достижимость max и дают хвост нулей в значении.
     function rng(key, step) {
       var lo = Math.min.apply(0, all.map(function (f) { return f[key]; }));
       var hi = Math.max.apply(0, all.map(function (f) { return f[key]; }));
       return [Math.floor(lo / step) * step, Math.ceil((hi - 1e-9) / step) * step];
     }
-    var bounds = { price: rng('price', 250000), area: rng('area', 0.1), floor: rng('floor', 1) };
+    var bounds = { price: rng('price', 250000), area: rng('area', 1), floor: rng('floor', 1) };
     this.bounds = bounds;
     this.f = {
       house: buildingId || 'all', rooms: {}, price: bounds.price.slice(), area: bounds.area.slice(),
@@ -171,7 +171,7 @@
     }).join('') + '</div>');
     // диапазоны
     html += fgroup('Цена, ₽', this.rangeHtml('price', 250000));
-    html += fgroup('Площадь, м²', this.rangeHtml('area', 0.1));
+    html += fgroup('Площадь, м²', this.rangeHtml('area', 1));
     html += fgroup('Этаж', this.rangeHtml('floor', 1));
     // особенность
     html += fgroup('Особенность', '<select class="shm__select" data-f="feature"><option value="">Не выбрано</option>' +
