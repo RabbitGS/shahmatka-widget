@@ -176,6 +176,8 @@ def main():
     data = {
         "project": "ЖК «Крылья»",
         "currency": "₽",
+        "deadline": "IV кв. 2026",
+        "mortgage": {"rate": 0.06, "years": 30, "down": 0.2},
         "genplan": {
             "image": "genplan.jpg",
             "buildings": buildings,

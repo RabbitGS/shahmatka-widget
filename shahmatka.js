@@ -50,26 +50,51 @@
     return s;
   }
 
+  // аннуитетный платёж по ипотеке: «от N ₽/мес» на странице лота
+  function mortgage(price, m) {
+    m = m || {};
+    var down = m.down != null ? m.down : 0.2;
+    var rate = (m.rate != null ? m.rate : 0.06) / 12;
+    var n = (m.years != null ? m.years : 30) * 12;
+    var P = price * (1 - down);
+    if (rate <= 0) return P / n;
+    var k = Math.pow(1 + rate, n);
+    return P * rate * k / (k - 1);
+  }
+  function spec(label, val) { return '<li class="shm__spec"><span>' + label + '</span><b>' + esc(val) + '</b></li>'; }
+
   function Widget(opts) {
     this.opts = opts;
     this.root = document.querySelector(opts.container);
     if (!this.root) { console.error('[Шахматка] контейнер не найден:', opts.container); return; }
+    this.theme = opts.theme;   // 'light' | 'dark' (по умолчанию тёмная)
+    this.accent = opts.accent; // '#rrggbb' — цвет под бренд клиента
     this.fav = {};
     this.load();
   }
 
+  // открывающий тег корневого .shm с учётом темы и акцента
+  Widget.prototype.shmOpen = function () {
+    var cls = 'shm' + (this.theme === 'light' ? ' shm--light' : '');
+    var style = this.accent ? ' style="--shm-accent:' + esc(this.accent) + '"' : '';
+    return '<div class="' + cls + '"' + style + '>';
+  };
+
   Widget.prototype.load = function () {
     var self = this;
-    this.root.innerHTML = '<div class="shm"><div class="shm__error">Загрузка…</div></div>';
+    this.root.innerHTML = this.shmOpen() + '<div class="shm__error">Загрузка…</div></div>';
     fetch(this.opts.dataUrl)
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (data) {
         self.data = data;
+        // тема/акцент из данных, если не заданы явно в init
+        if (!self.theme && data.theme) self.theme = data.theme;
+        if (!self.accent && data.accent) self.accent = data.accent;
         if (data.genplan && data.genplan.buildings && data.genplan.buildings.length) self.showGenplan();
         else self.showSelection('all');
       })
       .catch(function (e) {
-        self.root.innerHTML = '<div class="shm"><div class="shm__error">Не удалось загрузить данные: ' + e.message + '</div></div>';
+        self.root.innerHTML = self.shmOpen() + '<div class="shm__error">Не удалось загрузить данные: ' + e.message + '</div></div>';
       });
   };
 
@@ -97,7 +122,7 @@
         '<span class="shm-gp__pin"></span></button>';
     }).join('');
 
-    var html = '<div class="shm">';
+    var html = this.shmOpen();
     html += '<h2 class="shm-gp__title">' + esc(d.project || 'Генплан') + '</h2>';
     html += '<p class="shm-gp__sub">Выберите дом на генплане</p>';
     html += '<div class="shm-gp">';
@@ -157,7 +182,7 @@
     var promos = uniq(all.map(function (f) { return f.promo; }).filter(Boolean));
     var hasGp = d.genplan && d.genplan.buildings.length;
 
-    var html = '<div class="shm">';
+    var html = this.shmOpen();
     if (hasGp) html += '<button class="shm__back" type="button">← К генплану</button>';
 
     // фильтры
@@ -441,38 +466,55 @@
     panel.innerHTML = html;
     panel.querySelector('.shm__close').addEventListener('click', function () { self.closePanel(); });
     panel.querySelectorAll('.shm__flat-pick').forEach(function (btn) {
-      btn.addEventListener('click', function () { self.lead(btn.getAttribute('data-id')); });
+      btn.addEventListener('click', function () { self.openFlatPanel(btn.getAttribute('data-id')); });
     });
     this.openPanel();
   };
 
-  /* ---------- панель: одна квартира (из шахматки) ---------- */
+  /* ---------- СТРАНИЦА ЛОТА — одна квартира ---------- */
   Widget.prototype.openFlatPanel = function (id) {
     var self = this, d = this.data, cur = d.currency || '₽';
     var flat = d.flats.filter(function (f) { return f.id === id; })[0];
     if (!flat) return;
     var st = d.statuses[flat.status] || {}, bld = this.buildingById(flat.building);
+    var deadline = flat.deadline || (bld && bld.deadline) || d.deadline;
+    var mo = mortgage(flat.price, d.mortgage);
+
+    // теги: статус (акцентный) + акция + особенности
+    var tags = '<span class="shm__tag shm__tag--accent">' + esc(st.label || 'В продаже') + '</span>';
+    if (flat.promo) tags += '<span class="shm__tag">' + esc(flat.promo) + '</span>';
+    (flat.features || []).forEach(function (x) { tags += '<span class="shm__tag">' + esc(x) + '</span>'; });
 
     var html = '<div class="shm__panel-head"><div>';
-    html += '<h3 class="shm__panel-title">Квартира №' + esc(flat.number) + '</h3>';
-    html += '<p class="shm__panel-sub">' + esc(bld ? bld.name : '') + ' · ' + roomsLabel(flat.rooms) + ' · ' + flat.floor + ' этаж</p>';
+    html += '<h3 class="shm__panel-title">' + roomsLabel(flat.rooms) + ' · ' + flat.area + ' м²</h3>';
+    html += '<p class="shm__panel-sub">Кв. №' + esc(flat.number) + (bld ? ' · ' + esc(bld.name) : '') + ' · ' + flat.floor + ' этаж</p>';
     html += '</div><button class="shm__close" aria-label="Закрыть">×</button></div>';
     html += '<div class="shm__plan">' + planMedia(flat) + '</div>';
-    html += '<div style="padding:0 22px"><span class="shm__badge" style="background:' + (st.color || '#999') + '">' + esc(st.label) + '</span></div>';
+    html += '<div class="shm__lot-tags">' + tags + '</div>';
+    html += '<div class="shm__price"><div class="shm__price-row">';
+    html += '<span class="shm__price-val">' + money(flat.price) + ' ' + cur + '</span>';
+    if (flat.oldPrice && flat.oldPrice > flat.price) html += '<span class="shm__price-old">' + money(flat.oldPrice) + ' ' + cur + '</span>';
+    html += '</div><div class="shm__price-meta">' + money(flat.price / flat.area) + ' ' + cur + ' / м² · ипотека от ' + money(mo) + ' ' + cur + '/мес</div></div>';
     html += '<ul class="shm__specs">';
-    html += '<li class="shm__spec"><span>Площадь</span><b>' + flat.area + ' м²</b></li>';
-    html += '<li class="shm__spec"><span>Этаж</span><b>' + flat.floor + '</b></li>';
-    html += '<li class="shm__spec"><span>Отделка</span><b>' + flat.finishing + '</b></li>';
-    if (flat.features) html += '<li class="shm__spec"><span>Особенности</span><b>' + esc(flat.features.join(', ')) + '</b></li>';
+    if (bld) html += spec('Корпус', bld.name);
+    var section = flat.section || (bld && bld.tag);
+    if (section) html += spec('Секция', section);
+    html += spec('Этаж', flat.floor);
+    html += spec('Площадь', flat.area + ' м²');
+    if (flat.finishing) html += spec('Отделка', flat.finishing);
+    if (deadline) html += spec('Срок сдачи', deadline);
     html += '</ul>';
-    html += '<div class="shm__price"><div class="shm__price-val">' + money(flat.price) + ' ' + cur + '</div>';
-    html += '<div class="shm__price-meta">' + money(flat.price / flat.area) + ' ' + cur + ' / м²</div></div>';
-    html += '<button class="shm__cta" data-id="' + esc(flat.id) + '">' + (flat.status === 'reserved' ? 'Узнать про бронь' : 'Оставить заявку') + '</button>';
+    html += '<div class="shm__lot-actions">';
+    html += '<button class="shm__btn shm__btn--primary" data-id="' + esc(flat.id) + '">' + (flat.status === 'reserved' ? 'Узнать про бронь' : 'Забронировать') + '</button>';
+    html += '<button class="shm__btn shm__btn--ghost" data-id="' + esc(flat.id) + '">Заказать звонок</button>';
+    html += '</div>';
 
     var panel = this.root.querySelector('.shm__panel');
     panel.innerHTML = html;
     panel.querySelector('.shm__close').addEventListener('click', function () { self.closePanel(); });
-    panel.querySelector('.shm__cta').addEventListener('click', function () { self.lead(flat.id); });
+    panel.querySelectorAll('.shm__btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { self.lead(flat.id); });
+    });
     this.openPanel();
   };
 

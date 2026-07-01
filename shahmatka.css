@@ -178,6 +178,40 @@
 
 .shm__error { padding: 24px; color: #ff7b7b; font-size: 14px; }
 
+/* ============================================================
+ * СВЕТЛАЯ ТЕМА — включается классом .shm--light (init: theme:'light').
+ * Акцент задаётся инлайном --shm-accent (init: accent:'#...').
+ * ============================================================ */
+.shm--light {
+  --shm-bg: #f4f6f9;
+  --shm-card: #ffffff;
+  --shm-card-2: #eef2f6;
+  --shm-fg: #0f1922;
+  --shm-muted: #6b7785;
+  --shm-line: #e3e9ef;
+}
+.shm--light .shm-gp { background: #e9eef3; }
+.shm--light .shm__card { box-shadow: 0 1px 3px rgba(16,25,34,.06); }
+.shm--light .shm__card-promo { color: #8a6d1f; background: #fff7e0; border-color: #efd9a0; }
+.shm--light .shm__error { color: #c0392b; }
+
+/* ============================================================
+ * СТРАНИЦА ЛОТА — расширенная панель квартиры (эталон idalite)
+ * ============================================================ */
+.shm__lot-tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 22px 2px; }
+.shm__tag { font-size: 12px; padding: 5px 11px; border-radius: 999px;
+  background: var(--shm-card-2); color: var(--shm-fg); border: 1px solid var(--shm-line); }
+.shm__tag--accent { background: var(--shm-accent); border-color: var(--shm-accent); color: #fff; }
+.shm__price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.shm__price-old { font-size: 15px; color: var(--shm-muted); text-decoration: line-through; }
+.shm__lot-actions { display: flex; flex-direction: column; gap: 10px; margin: auto 22px 22px; }
+.shm__btn { padding: 15px; border: none; border-radius: var(--shm-radius);
+  font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.shm__btn--primary { background: var(--shm-accent); color: #fff; }
+.shm__btn--primary:hover { filter: brightness(1.06); }
+.shm__btn--ghost { background: transparent; color: var(--shm-fg); border: 1px solid var(--shm-line); }
+.shm__btn--ghost:hover { border-color: var(--shm-accent); color: var(--shm-accent); }
+
 @media (max-width: 600px) {
   .shm { --shm-cell: 56px; padding: 14px; }
   .shm__range { width: 150px; }
