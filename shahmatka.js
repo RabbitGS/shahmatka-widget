@@ -111,13 +111,31 @@
   Widget.prototype.showGenplan = function () {
     var self = this, d = this.data, gp = d.genplan;
 
+    var cur = d.currency || '₽';
     var markers = gp.buildings.map(function (b) {
       var flats = self.flatsOf(b.id);
-      var free = flats.filter(function (f) { return f.status === 'free'; }).length;
+      var freeFlats = flats.filter(function (f) { return f.status === 'free'; });
+      var free = freeFlats.length;
       var soldout = free === 0;
       var sub = b.tag ? b.tag : free + ' своб.';
+
+      // цены «от» по комнатности — для тултипа при наведении
+      var byRooms = {};
+      freeFlats.forEach(function (f) {
+        if (byRooms[f.rooms] == null || f.price < byRooms[f.rooms]) byRooms[f.rooms] = f.price;
+      });
+      var roomsSorted = Object.keys(byRooms).map(Number).sort(function (a, b) { return a - b; });
+      var tipRows = soldout
+        ? '<span class="shm-gp__tip-row shm-gp__tip-row--sold">Все квартиры проданы</span>'
+        : roomsSorted.map(function (r) {
+            return '<span class="shm-gp__tip-row"><span>' + roomsLabel(r) + '</span><b>от ' + money(byRooms[r]) + ' ' + cur + '</b></span>';
+          }).join('');
+      var tip = '<span class="shm-gp__tip"><b class="shm-gp__tip-h">' + esc(b.name) +
+        (b.tag ? ' · ' + esc(b.tag) : '') + '</b>' + tipRows + '</span>';
+
       return '<button class="shm-gp__marker' + (soldout ? ' is-soldout' : '') + '" data-bld="' + esc(b.id) + '" ' +
         'style="left:' + b.xPct + '%;top:' + b.yPct + '%">' +
+        tip +
         '<span class="shm-gp__pill">' + esc(b.name) + '<small>' + esc(sub) + '</small></span>' +
         '<span class="shm-gp__pin"></span></button>';
     }).join('');

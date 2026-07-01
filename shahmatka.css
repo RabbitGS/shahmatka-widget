@@ -19,8 +19,8 @@
 .shm *, .shm *::before, .shm *::after { box-sizing: inherit; }
 
 /* ---------- ГЕНПЛАН (рендер + пины) ---------- */
-.shm-gp { position: relative; border-radius: var(--shm-radius); overflow: hidden; background: #0a1119; }
-.shm-gp__img { display: block; width: 100%; height: auto; }
+.shm-gp { position: relative; border-radius: var(--shm-radius); background: #0a1119; }
+.shm-gp__img { display: block; width: 100%; height: auto; border-radius: var(--shm-radius); }
 .shm-gp__fallback { padding: 80px 24px; text-align: center; color: var(--shm-muted); font-size: 14px; line-height: 1.6; }
 .shm-gp__marker {
   position: absolute; transform: translate(-50%, -100%);
@@ -36,6 +36,22 @@
 .shm-gp__marker:hover .shm-gp__pill { background: var(--shm-accent); border-color: var(--shm-accent); transform: translateY(-2px); }
 .shm-gp__pill small { display: block; font-size: 11px; font-weight: 500; opacity: .8; margin-top: 1px; }
 .shm-gp__pin { width: 2px; height: 14px; background: rgba(13,22,31,.82); }
+
+/* тултип с ценами «от» по комнатности */
+.shm-gp__tip {
+  position: absolute; bottom: 100%; left: 50%; transform: translate(-50%, -6px);
+  margin-bottom: 10px; min-width: 190px; padding: 11px 13px;
+  background: var(--shm-card); color: var(--shm-fg); border: 1px solid var(--shm-line);
+  border-radius: 11px; box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  opacity: 0; visibility: hidden; transform: translate(-50%, 0); transition: opacity .14s ease, transform .14s ease;
+  pointer-events: none; z-index: 6;
+}
+.shm-gp__marker:hover .shm-gp__tip { opacity: 1; visibility: visible; transform: translate(-50%, -6px); }
+.shm-gp__tip-h { display: block; font-size: 14px; margin-bottom: 7px; white-space: nowrap; }
+.shm-gp__tip-row { display: flex; justify-content: space-between; gap: 18px; font-size: 13px; padding: 3px 0; color: var(--shm-muted); white-space: nowrap; }
+.shm-gp__tip-row b { color: var(--shm-fg); font-weight: 600; }
+.shm-gp__tip-row--sold { justify-content: center; color: #c0392b; }
+
 .shm-gp__marker.is-soldout { cursor: default; }
 .shm-gp__marker.is-soldout:hover .shm-gp__pill { background: rgba(13,22,31,.82); border-color: rgba(255,255,255,.18); transform: none; }
 .shm-gp__title { margin: 0 0 4px; font-size: 22px; font-weight: 700; }
