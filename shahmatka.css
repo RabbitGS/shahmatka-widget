@@ -48,9 +48,10 @@
 }
 .shm__back:hover { text-decoration: underline; }
 
-/* ---------- Панель фильтров ---------- */
-.shm__filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 18px; margin-bottom: 22px; }
-.shm__fgroup { display: flex; flex-direction: column; gap: 7px; }
+/* ---------- Панель фильтров (карточка, стиль idalite) ---------- */
+.shm__filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 22px; margin-bottom: 20px;
+  background: var(--shm-card); border: 1px solid var(--shm-line); border-radius: var(--shm-radius); padding: 18px 20px; }
+.shm__fgroup { display: flex; flex-direction: column; gap: 8px; }
 .shm__flabel { font-size: 12px; color: var(--shm-muted); font-weight: 500; }
 .shm__select, .shm__sortsel {
   appearance: none; background: var(--shm-card-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%238295a6' stroke-width='1.6'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 14px center;
@@ -59,8 +60,8 @@
 }
 .shm__rooms { display: flex; gap: 6px; }
 .shm__room {
-  width: 44px; height: 44px; border: 1px solid var(--shm-line); background: var(--shm-card-2);
-  color: var(--shm-fg); border-radius: 10px; font-size: 15px; cursor: pointer; font-family: inherit; transition: all .12s ease;
+  min-width: 44px; height: 42px; padding: 0 15px; border: 1px solid var(--shm-line); background: var(--shm-card-2);
+  color: var(--shm-fg); border-radius: 999px; font-size: 15px; cursor: pointer; font-family: inherit; transition: all .12s ease;
 }
 .shm__room:hover { border-color: var(--shm-accent); }
 .shm__room.is-active { background: var(--shm-accent); border-color: var(--shm-accent); color: #fff; }
@@ -84,10 +85,10 @@
   background: #fff; border: 3px solid var(--shm-accent); cursor: pointer;
 }
 .shm__reset {
-  background: var(--shm-accent); color: #fff; border: none; border-radius: 10px;
-  padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; height: 44px;
+  background: none; color: var(--shm-muted); border: none; border-radius: 10px;
+  padding: 0 6px; font-size: 13px; cursor: pointer; font-family: inherit; height: 42px; align-self: flex-end;
 }
-.shm__reset:hover { filter: brightness(1.08); }
+.shm__reset:hover { color: var(--shm-accent); text-decoration: underline; }
 
 /* ---------- Результаты ---------- */
 .shm__resbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }

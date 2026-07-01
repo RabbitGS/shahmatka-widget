@@ -204,7 +204,7 @@
     // акция
     html += fgroup('Акция', '<select class="shm__select" data-f="promo"><option value="">Не выбрано</option>' +
       promos.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + '</option>'; }).join('') + '</select>');
-    html += '<button class="shm__reset" type="button">Сбросить фильтры</button>';
+    html += '<button class="shm__reset" type="button">Сбросить фильтры ✕</button>';
     html += '</div>';
 
     // строка результатов
