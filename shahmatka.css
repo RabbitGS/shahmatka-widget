@@ -229,7 +229,29 @@
 .shm__btn--ghost { background: transparent; color: var(--shm-fg); border: 1px solid var(--shm-line); }
 .shm__btn--ghost:hover { border-color: var(--shm-accent); color: var(--shm-accent); }
 
+/* ============================================================
+ * ИПОТЕЧНЫЙ КАЛЬКУЛЯТОР (вкладка «Ипотека»)
+ * ============================================================ */
+.shm__mort { display: grid; grid-template-columns: 1fr 1fr; gap: 26px;
+  background: var(--shm-card); border: 1px solid var(--shm-line); border-radius: var(--shm-radius); padding: 24px; }
+.shm__mort-form { display: flex; flex-direction: column; gap: 20px; }
+.shm__mort-field { display: flex; flex-direction: column; gap: 9px; font-size: 13px; color: var(--shm-muted); }
+.shm__mort-field b { color: var(--shm-fg); }
+.shm__mort-input { background: var(--shm-card-2); border: 1px solid var(--shm-line); border-radius: 10px;
+  padding: 12px 14px; color: var(--shm-fg); font-size: 16px; font-family: inherit; width: 100%; box-sizing: border-box; }
+.shm__mort-slider { width: 100%; accent-color: var(--shm-accent); cursor: pointer; }
+.shm__mort-out { display: flex; flex-direction: column; }
+.shm__mort-pay { font-size: 32px; font-weight: 800; letter-spacing: -.02em; }
+.shm__mort-meta { font-size: 13px; color: var(--shm-muted); margin-top: 5px; }
+.shm__mort-banks { list-style: none; margin: 18px 0 0; padding: 0; }
+.shm__mort-bank { display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 11px 0; border-bottom: 1px solid var(--shm-line); font-size: 14px; }
+.shm__mort-prog { color: var(--shm-muted); font-size: 12px; }
+.shm__mort-cta { margin-top: 20px; }
+.shm__mort-note { font-size: 12px; color: var(--shm-muted); margin: 12px 0 0; line-height: 1.5; }
+
 @media (max-width: 600px) {
   .shm { --shm-cell: 56px; padding: 14px; }
   .shm__range { width: 150px; }
+  .shm__mort { grid-template-columns: 1fr; gap: 20px; }
 }

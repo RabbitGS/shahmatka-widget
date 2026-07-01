@@ -230,7 +230,8 @@
     html += '<div class="shm__rescount"></div>';
     html += '<div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">';
     html += '<div class="shm__tabs"><button class="shm__tab is-active" data-view="cards">Планировки</button>' +
-      '<button class="shm__tab" data-view="grid">Шахматка</button></div>';
+      '<button class="shm__tab" data-view="grid">Шахматка</button>' +
+      '<button class="shm__tab" data-view="mortgage">Ипотека</button></div>';
     html += '<div class="shm__sort">Сортировка <select class="shm__sortsel" data-f="sort">' +
       '<option value="price-asc">Цена ↑</option><option value="price-desc">Цена ↓</option>' +
       '<option value="area-asc">Площадь ↑</option><option value="area-desc">Площадь ↓</option></select></div>';
@@ -339,6 +340,7 @@
 
   Widget.prototype.renderResults = function () {
     if (this.view === 'grid') return this.renderGrid();
+    if (this.view === 'mortgage') return this.renderMortgage();
     return this.renderCards();
   };
 
@@ -453,6 +455,72 @@
       if (cell.getAttribute('data-status') === 'sold') return;
       cell.addEventListener('click', function () { self.openFlatPanel(cell.getAttribute('data-id')); });
     });
+  };
+
+  /* ---------- вкладка «Ипотека» — калькулятор ---------- */
+  Widget.prototype.renderMortgage = function () {
+    var self = this, d = this.data, cur = d.currency || '₽';
+    var m = d.mortgage || {};
+    var baseRate = m.rate != null ? m.rate : 0.06;
+    var years0 = m.years != null ? m.years : 30;
+    var down0 = m.down != null ? m.down : 0.2;
+    var prices = d.flats.map(function (f) { return f.price; });
+    var minP = Math.min.apply(0, prices), maxP = Math.max.apply(0, prices);
+    if (!this.mort) this.mort = { cost: minP, down: Math.round(down0 * 100), years: years0 };
+    var st = this.mort, banks = d.banks || null;
+
+    this.root.querySelector('.shm__rescount').innerHTML =
+      'Ипотечный калькулятор <span>· базовая ставка ' + (baseRate * 100) + '% годовых</span>';
+
+    function field(label, inner) { return '<label class="shm__mort-field"><span>' + label + '</span>' + inner + '</label>'; }
+
+    var res = this.root.querySelector('.shm__results');
+    res.innerHTML =
+      '<div class="shm__mort">' +
+        '<div class="shm__mort-form">' +
+          field('Стоимость квартиры, ' + cur, '<input type="number" class="shm__mort-input" data-m="cost" value="' + st.cost + '" min="' + minP + '" max="' + maxP + '" step="10000">') +
+          field('Первоначальный взнос: <b class="shm__mort-dv"></b>', '<input type="range" class="shm__mort-slider" data-m="down" min="0" max="90" step="5" value="' + st.down + '">') +
+          field('Срок кредита: <b class="shm__mort-yv"></b>', '<input type="range" class="shm__mort-slider" data-m="years" min="1" max="30" step="1" value="' + st.years + '">') +
+        '</div>' +
+        '<div class="shm__mort-out">' +
+          '<div class="shm__mort-pay"></div>' +
+          '<div class="shm__mort-meta"></div>' +
+          (banks ? '<ul class="shm__mort-banks"></ul>' : '') +
+          '<button class="shm__btn shm__btn--primary shm__mort-cta" type="button">Оставить заявку на ипотеку</button>' +
+          '<p class="shm__mort-note">Ставка ориентировочная. Точные условия — у застройщика и банка.</p>' +
+        '</div>' +
+      '</div>';
+
+    function refresh() {
+      var cost = +res.querySelector('[data-m="cost"]').value || minP;
+      var down = +res.querySelector('[data-m="down"]').value;
+      var years = +res.querySelector('[data-m="years"]').value;
+      st.cost = cost; st.down = down; st.years = years;
+      var loan = cost * (1 - down / 100);
+      var pay = mortgage(loan, { rate: baseRate, years: years, down: 0 });
+      res.querySelector('.shm__mort-pay').textContent = money(pay) + ' ' + cur + '/мес';
+      res.querySelector('.shm__mort-meta').innerHTML =
+        'взнос ' + down + '% (' + money(cost * down / 100) + ' ' + cur + ') · кредит ' + money(loan) + ' ' + cur + ' · ' + years + ' лет';
+      res.querySelector('.shm__mort-dv').textContent = down + '%';
+      res.querySelector('.shm__mort-yv').textContent = years + ' лет';
+      if (banks) {
+        res.querySelector('.shm__mort-banks').innerHTML = banks.map(function (bk) {
+          var p = mortgage(loan, { rate: bk.rate, years: years, down: 0 });
+          return '<li class="shm__mort-bank"><span>' + esc(bk.name) +
+            (bk.program ? ' <span class="shm__mort-prog">· ' + esc(bk.program) + '</span>' : '') +
+            '</span><b>' + money(p) + ' ' + cur + '/мес</b></li>';
+        }).join('');
+      }
+    }
+    res.querySelectorAll('[data-m]').forEach(function (inp) { inp.addEventListener('input', refresh); });
+    res.querySelector('.shm__mort-cta').addEventListener('click', function () {
+      var loan = st.cost * (1 - st.down / 100);
+      var pay = mortgage(loan, { rate: baseRate, years: st.years, down: 0 });
+      var cb = self.opts.onMortgageLead;
+      if (typeof cb === 'function') cb({ cost: st.cost, down: st.down, years: st.years, payment: Math.round(pay) });
+      else alert('Заявка на ипотеку: стоимость ' + money(st.cost) + ' ' + cur + ', взнос ' + st.down + '%, срок ' + st.years + ' лет, платёж ~' + money(pay) + ' ' + cur + '/мес.');
+    });
+    refresh();
   };
 
   /* ---------- панель: группа планировок ---------- */

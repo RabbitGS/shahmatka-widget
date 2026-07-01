@@ -178,6 +178,12 @@ def main():
         "currency": "₽",
         "deadline": "IV кв. 2026",
         "mortgage": {"rate": 0.06, "years": 30, "down": 0.2},
+        "banks": [
+            {"name": "Сбербанк", "program": "Семейная", "rate": 0.06},
+            {"name": "ВТБ", "program": "Семейная", "rate": 0.06},
+            {"name": "ДОМ.РФ", "program": "Семейная", "rate": 0.06},
+            {"name": "Альфа-Банк", "program": "Семейная", "rate": 0.06},
+        ],
         "genplan": {
             "image": "genplan.jpg",
             "buildings": buildings,
