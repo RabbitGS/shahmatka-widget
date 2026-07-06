@@ -142,6 +142,8 @@
 .shm__empty { padding: 50px; text-align: center; color: var(--shm-muted); }
 
 /* ---------- Шахматка (сетка) ---------- */
+.shm__grid-title { margin: 4px 0 8px; font-size: 15px; font-weight: 700; color: var(--shm-fg); }
+.shm__grid-wrap + .shm__grid-title { margin-top: 22px; }
 .shm__grid-wrap { overflow-x: auto; border: 1px solid var(--shm-line); border-radius: var(--shm-radius); background: var(--shm-card); }
 .shm__grid { border-collapse: separate; border-spacing: 6px; padding: 10px; min-width: max-content; }
 .shm__riser-head, .shm__floor-head { font-size: 12px; font-weight: 600; color: var(--shm-muted); text-align: center; padding: 4px 8px; }

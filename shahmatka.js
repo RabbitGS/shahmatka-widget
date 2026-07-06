@@ -411,39 +411,48 @@
   /* ---------- вкладка «Шахматка» ---------- */
   Widget.prototype.renderGrid = function () {
     var self = this, d = this.data;
-    var flats = this.filtered(true);
-    // шахматка показывается по одному дому: если выбраны «все» — берём дом первой квартиры
-    var house = this.f.house;
-    if (house === 'all') house = flats.length ? flats[0].building : (d.genplan.buildings[0] || {}).id;
-    var bld = this.buildingById(house);
-    flats = flats.filter(function (x) { return x.building === house; });
-
-    var floors = uniq(flats.map(function (x) { return x.floor; })).sort(function (a, b) { return b - a; });
-    var risers = uniq(flats.map(function (x) { return x.riser; })).sort(function (a, b) { return a - b; });
-
-    this.root.querySelector('.shm__rescount').innerHTML = (bld ? esc(bld.name) + ' — ' : '') +
-      flats.length + ' ' + plural(flats.length, ['квартира', 'квартиры', 'квартир']) +
-      ' <span>(шахматка показывается по одному подъезду)</span>';
-
+    var all = this.filtered(true);
     var res = this.root.querySelector('.shm__results');
-    if (!floors.length) { res.innerHTML = '<div class="shm__empty">Под фильтры ничего не подошло.</div>'; return; }
 
-    var html = '<div class="shm__grid-wrap"><table class="shm__grid"><tbody>';
-    html += '<tr><td></td>' + risers.map(function (r) { return '<td class="shm__riser-head">Стояк ' + r + '</td>'; }).join('') + '</tr>';
-    floors.forEach(function (floor) {
-      html += '<tr><td class="shm__floor-head">' + floor + ' эт.</td>';
-      risers.forEach(function (riser) {
-        var flat = flats.filter(function (x) { return x.floor === floor && x.riser === riser; })[0];
-        if (!flat) { html += '<td><div class="shm__cell shm__cell--empty"></div></td>'; return; }
-        var color = (d.statuses[flat.status] || {}).color || '#999';
-        var cls = 'shm__cell' + (flat.status === 'sold' ? ' shm__cell--sold' : '');
-        html += '<td><button class="' + cls + '" style="background:' + color + '" data-id="' + esc(flat.id) + '" data-status="' + flat.status + '">' +
-          '<span class="shm__cell-num">№' + esc(flat.number) + '</span>' +
-          '<span class="shm__cell-meta">' + roomsShort(flat.rooms) + ' · ' + flat.area + '</span></button></td>';
+    // какие подъезды показывать: выбранный один или все (при «Все подъезды»)
+    var houses = this.f.house === 'all'
+      ? d.genplan.buildings.map(function (b) { return b.id; })
+      : [this.f.house];
+    var multi = houses.length > 1;
+
+    this.root.querySelector('.shm__rescount').innerHTML =
+      (multi ? 'Все подъезды' : esc((this.buildingById(houses[0]) || {}).name || '')) + ' — ' +
+      all.length + ' ' + plural(all.length, ['квартира', 'квартиры', 'квартир']) +
+      ' <span>(по этажам и стоякам)</span>';
+
+    var html = '';
+    houses.forEach(function (house) {
+      var flats = all.filter(function (x) { return x.building === house; });
+      if (!flats.length) return;
+      var bld = self.buildingById(house);
+      var floors = uniq(flats.map(function (x) { return x.floor; })).sort(function (a, b) { return b - a; });
+      var risers = uniq(flats.map(function (x) { return x.riser; })).sort(function (a, b) { return a - b; });
+
+      if (multi) html += '<h3 class="shm__grid-title">' + esc(bld ? bld.name : '') + '</h3>';
+      html += '<div class="shm__grid-wrap"><table class="shm__grid"><tbody>';
+      html += '<tr><td></td>' + risers.map(function (r) { return '<td class="shm__riser-head">Стояк ' + r + '</td>'; }).join('') + '</tr>';
+      floors.forEach(function (floor) {
+        html += '<tr><td class="shm__floor-head">' + floor + ' эт.</td>';
+        risers.forEach(function (riser) {
+          var flat = flats.filter(function (x) { return x.floor === floor && x.riser === riser; })[0];
+          if (!flat) { html += '<td><div class="shm__cell shm__cell--empty"></div></td>'; return; }
+          var color = (d.statuses[flat.status] || {}).color || '#999';
+          var cls = 'shm__cell' + (flat.status === 'sold' ? ' shm__cell--sold' : '');
+          html += '<td><button class="' + cls + '" style="background:' + color + '" data-id="' + esc(flat.id) + '" data-status="' + flat.status + '">' +
+            '<span class="shm__cell-num">№' + esc(flat.number) + '</span>' +
+            '<span class="shm__cell-meta">' + roomsShort(flat.rooms) + ' · ' + flat.area + '</span></button></td>';
+        });
+        html += '</tr>';
       });
-      html += '</tr>';
+      html += '</tbody></table></div>';
     });
-    html += '</tbody></table></div>';
+
+    if (!html) { res.innerHTML = '<div class="shm__empty">Под фильтры ничего не подошло.</div>'; return; }
     res.innerHTML = html;
 
     res.querySelectorAll('.shm__cell[data-id]').forEach(function (cell) {
@@ -527,7 +536,7 @@
 
     var html = '<div class="shm__panel-head"><div>';
     html += '<h3 class="shm__panel-title">' + roomsLabel(one.rooms) + ' · ' + one.area + ' м²</h3>';
-    html += '<p class="shm__panel-sub">' + esc(bld ? bld.name : '') + ' · ' + one.finishing + ' отделка</p>';
+    html += '<p class="shm__panel-sub">' + esc(bld ? bld.name : '') + '</p>';
     html += '</div><button class="shm__close" aria-label="Закрыть">×</button></div>';
     html += '<div class="shm__plan">' + planMedia(one) + '</div>';
     html += '<div class="shm__price"><div class="shm__price-val">от ' + money(minP) + ' ' + cur + '</div>';
@@ -582,7 +591,6 @@
     if (section) html += spec('Секция', section);
     html += spec('Этаж', flat.floor);
     html += spec('Площадь', flat.area + ' м²');
-    if (flat.finishing) html += spec('Отделка', flat.finishing);
     if (deadline) html += spec('Срок сдачи', deadline);
     html += '</ul>';
     html += '<div class="shm__lot-actions">';
