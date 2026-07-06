@@ -425,7 +425,7 @@
       all.length + ' ' + plural(all.length, ['квартира', 'квартиры', 'квартир']) +
       ' <span>(по этажам и стоякам)</span>';
 
-    var html = '';
+    var cols = [];
     houses.forEach(function (house) {
       var flats = all.filter(function (x) { return x.building === house; });
       if (!flats.length) return;
@@ -433,27 +433,28 @@
       var floors = uniq(flats.map(function (x) { return x.floor; })).sort(function (a, b) { return b - a; });
       var risers = uniq(flats.map(function (x) { return x.riser; })).sort(function (a, b) { return a - b; });
 
-      if (multi) html += '<h3 class="shm__grid-title">' + esc(bld ? bld.name : '') + '</h3>';
-      html += '<div class="shm__grid-wrap"><table class="shm__grid"><tbody>';
-      html += '<tr><td></td>' + risers.map(function (r) { return '<td class="shm__riser-head">Стояк ' + r + '</td>'; }).join('') + '</tr>';
+      var col = multi ? '<h3 class="shm__grid-title">' + esc(bld ? bld.name : '') + '</h3>' : '';
+      col += '<div class="shm__grid-wrap"><table class="shm__grid"><tbody>';
+      col += '<tr><td></td>' + risers.map(function (r) { return '<td class="shm__riser-head">Стояк ' + r + '</td>'; }).join('') + '</tr>';
       floors.forEach(function (floor) {
-        html += '<tr><td class="shm__floor-head">' + floor + ' эт.</td>';
+        col += '<tr><td class="shm__floor-head">' + floor + ' эт.</td>';
         risers.forEach(function (riser) {
           var flat = flats.filter(function (x) { return x.floor === floor && x.riser === riser; })[0];
-          if (!flat) { html += '<td><div class="shm__cell shm__cell--empty"></div></td>'; return; }
+          if (!flat) { col += '<td><div class="shm__cell shm__cell--empty"></div></td>'; return; }
           var color = (d.statuses[flat.status] || {}).color || '#999';
           var cls = 'shm__cell' + (flat.status === 'sold' ? ' shm__cell--sold' : '');
-          html += '<td><button class="' + cls + '" style="background:' + color + '" data-id="' + esc(flat.id) + '" data-status="' + flat.status + '">' +
+          col += '<td><button class="' + cls + '" style="background:' + color + '" data-id="' + esc(flat.id) + '" data-status="' + flat.status + '">' +
             '<span class="shm__cell-num">№' + esc(flat.number) + '</span>' +
             '<span class="shm__cell-meta">' + roomsShort(flat.rooms) + ' · ' + flat.area + '</span></button></td>';
         });
-        html += '</tr>';
+        col += '</tr>';
       });
-      html += '</tbody></table></div>';
+      col += '</tbody></table></div>';
+      cols.push(multi ? '<div class="shm__grid-col">' + col + '</div>' : col);
     });
 
-    if (!html) { res.innerHTML = '<div class="shm__empty">Под фильтры ничего не подошло.</div>'; return; }
-    res.innerHTML = html;
+    if (!cols.length) { res.innerHTML = '<div class="shm__empty">Под фильтры ничего не подошло.</div>'; return; }
+    res.innerHTML = multi ? '<div class="shm__grid-cols">' + cols.join('') + '</div>' : cols.join('');
 
     res.querySelectorAll('.shm__cell[data-id]').forEach(function (cell) {
       if (cell.getAttribute('data-status') === 'sold') return;
