@@ -430,7 +430,11 @@
       var flats = all.filter(function (x) { return x.building === house; });
       if (!flats.length) return;
       var bld = self.buildingById(house);
-      var floors = uniq(flats.map(function (x) { return x.floor; })).sort(function (a, b) { return b - a; });
+      // непрерывный диапазон этажей от верхнего до нижнего — пустые этажи тоже показываем
+      var fl = flats.map(function (x) { return x.floor; });
+      var fmax = Math.max.apply(0, fl), fmin = Math.min.apply(0, fl);
+      var floors = [];
+      for (var f = fmax; f >= fmin; f--) floors.push(f);
       var risers = uniq(flats.map(function (x) { return x.riser; })).sort(function (a, b) { return a - b; });
 
       var col = multi ? '<h3 class="shm__grid-title">' + esc(bld ? bld.name : '') + '</h3>' : '';
@@ -454,7 +458,11 @@
     });
 
     if (!cols.length) { res.innerHTML = '<div class="shm__empty">Под фильтры ничего не подошло.</div>'; return; }
-    res.innerHTML = multi ? '<div class="shm__grid-cols">' + cols.join('') + '</div>' : cols.join('');
+    var legend = '<div class="shm__legend">' + ['free', 'reserved', 'sold'].map(function (k) {
+      var s = d.statuses[k]; if (!s) return '';
+      return '<span class="shm__leg"><i style="background:' + s.color + '"></i>' + esc(s.label) + '</span>';
+    }).join('') + '</div>';
+    res.innerHTML = legend + (multi ? '<div class="shm__grid-cols">' + cols.join('') + '</div>' : cols.join(''));
 
     res.querySelectorAll('.shm__cell[data-id]').forEach(function (cell) {
       if (cell.getAttribute('data-status') === 'sold') return;

@@ -2,12 +2,32 @@
   "project": "ЖК «Крылья»",
   "currency": "₽",
   "deadline": "IV кв. 2026",
-  "mortgage": { "rate": 0.06, "years": 30, "down": 0.2 },
+  "mortgage": {
+    "rate": 0.06,
+    "years": 30,
+    "down": 0.2
+  },
   "banks": [
-    { "name": "Сбербанк", "program": "Семейная", "rate": 0.06 },
-    { "name": "ВТБ", "program": "Семейная", "rate": 0.06 },
-    { "name": "ДОМ.РФ", "program": "Семейная", "rate": 0.06 },
-    { "name": "Альфа-Банк", "program": "Семейная", "rate": 0.06 }
+    {
+      "name": "Сбербанк",
+      "program": "Семейная",
+      "rate": 0.06
+    },
+    {
+      "name": "ВТБ",
+      "program": "Семейная",
+      "rate": 0.06
+    },
+    {
+      "name": "ДОМ.РФ",
+      "program": "Семейная",
+      "rate": 0.06
+    },
+    {
+      "name": "Альфа-Банк",
+      "program": "Семейная",
+      "rate": 0.06
+    }
   ],
   "genplan": {
     "image": "genplan.jpg",
@@ -83,7 +103,7 @@
       "rooms": 2,
       "area": 83.05,
       "price": 9550750,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_83_p7.webp"
     },
@@ -148,7 +168,7 @@
       "rooms": 1,
       "area": 44.33,
       "price": 5452590,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_44_3_p7.webp"
     },
@@ -161,7 +181,7 @@
       "rooms": 2,
       "area": 83.05,
       "price": 9550750,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_83_p7.webp"
     },
@@ -213,7 +233,7 @@
       "rooms": 2,
       "area": 72.52,
       "price": 8629880,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_72_5_p7.webp"
     },
@@ -226,7 +246,7 @@
       "rooms": 2,
       "area": 83.05,
       "price": 9550750,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_83_p7.webp"
     },
@@ -252,7 +272,7 @@
       "rooms": 2,
       "area": 83.05,
       "price": 9550750,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_83_p7.webp"
     },
@@ -294,7 +314,7 @@
       "rooms": 2,
       "area": 83.05,
       "price": 9550750,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_83_p7.webp",
       "features": [
@@ -310,7 +330,7 @@
       "rooms": 2,
       "area": 72.52,
       "price": 8629880,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_72_5_p7.webp",
       "features": [
@@ -339,7 +359,7 @@
       "rooms": 2,
       "area": 64.86,
       "price": 7718340,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_64_8_p8.webp"
     },
@@ -391,7 +411,7 @@
       "rooms": 2,
       "area": 64.86,
       "price": 7718340,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_64_8_p8.webp"
     },
@@ -430,7 +450,7 @@
       "rooms": 2,
       "area": 64.86,
       "price": 7718340,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_64_8_p8.webp"
     },
@@ -534,7 +554,7 @@
       "rooms": 1,
       "area": 45.38,
       "price": 5581740,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_45_3_p8.webp"
     },
@@ -586,7 +606,7 @@
       "rooms": 2,
       "area": 64.86,
       "price": 7718340,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_64_8_p8.webp"
     },
@@ -625,7 +645,7 @@
       "rooms": 2,
       "area": 71.07,
       "price": 8457330,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_71_07_p8.webp"
     },
@@ -638,7 +658,7 @@
       "rooms": 2,
       "area": 64.86,
       "price": 7718340,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_64_8_p8.webp",
       "features": [
@@ -702,7 +722,7 @@
       "rooms": 2,
       "area": 64.86,
       "price": 7718340,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_64_8_p9.webp"
     },
@@ -752,7 +772,7 @@
       "rooms": 1,
       "area": 45.38,
       "price": 5581740,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_45_3_p9.webp"
     },
@@ -869,7 +889,7 @@
       "rooms": 1,
       "area": 45.38,
       "price": 5581740,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_45_3_p9.webp"
     },
@@ -895,7 +915,7 @@
       "rooms": 1,
       "area": 45.38,
       "price": 5581740,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_45_3_p9.webp"
     },
@@ -921,7 +941,7 @@
       "rooms": 2,
       "area": 64.86,
       "price": 7718340,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_64_8_p9.webp"
     },
@@ -934,7 +954,7 @@
       "rooms": 1,
       "area": 45.38,
       "price": 5581740,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_45_3_p9.webp"
     },
@@ -976,7 +996,7 @@
       "rooms": 1,
       "area": 45.38,
       "price": 5581740,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_45_3_p9.webp",
       "features": [
@@ -1021,7 +1041,7 @@
       "rooms": 3,
       "area": 91.83,
       "price": 10560450,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_91_8_p10.webp"
     },
@@ -1059,7 +1079,7 @@
       "rooms": 3,
       "area": 91.83,
       "price": 10560450,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_91_8_p10.webp"
     },
@@ -1098,7 +1118,7 @@
       "rooms": 3,
       "area": 91.83,
       "price": 10560450,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_91_8_p10.webp"
     },
@@ -1111,7 +1131,7 @@
       "rooms": 2,
       "area": 69.43,
       "price": 8262170,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_69_4_p10.webp"
     },
@@ -1150,7 +1170,7 @@
       "rooms": 3,
       "area": 91.83,
       "price": 10560450,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_91_8_p10.webp"
     },
@@ -1189,7 +1209,7 @@
       "rooms": 3,
       "area": 91.83,
       "price": 10560450,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_91_8_p10.webp"
     },
@@ -1254,7 +1274,7 @@
       "rooms": 1,
       "area": 44.13,
       "price": 5427990,
-      "status": "free",
+      "status": "sold",
       "finishing": "под ключ",
       "plan": "plans/p_44_1_p10.webp"
     },
@@ -1293,7 +1313,7 @@
       "rooms": 3,
       "area": 91.83,
       "price": 10560450,
-      "status": "free",
+      "status": "reserved",
       "finishing": "под ключ",
       "plan": "plans/p_91_8_p10.webp"
     },

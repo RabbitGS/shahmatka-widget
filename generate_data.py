@@ -132,6 +132,16 @@ def main():
             for off, r in enumerate(sorted(lst, key=lambda x: x["num"])):
                 riser_of[id(r)] = start[t] + off
 
+    # ДЕМО-статусы: в фиде статуса нет, распределяем детерминированно по номеру
+    # квартиры (пока не подключён живой источник — CRM/фид со статусами).
+    def demo_status(num):
+        n = int("".join(c for c in str(num) if c.isdigit()) or "0")
+        if n % 9 == 0:
+            return "sold"
+        if n % 4 == 0:
+            return "reserved"
+        return "free"
+
     # --- сборка квартир ---
     flats = []
     max_floor = max(r["floor"] for r in raw)
@@ -146,7 +156,7 @@ def main():
             "rooms": r["rooms"],
             "area": r["area"],
             "price": r["price"],
-            "status": "free",
+            "status": demo_status(r["num"]),
             "finishing": "под ключ",
         }
         plan = PLANS.get(key, "MISSING")
