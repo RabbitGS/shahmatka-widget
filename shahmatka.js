@@ -425,7 +425,7 @@
     this.root.querySelector('.shm__rescount').innerHTML =
       (multi ? 'Все подъезды' : esc((this.buildingById(houses[0]) || {}).name || '')) + ' — ' +
       all.length + ' ' + plural(all.length, ['квартира', 'квартиры', 'квартир']) +
-      ' <span>(по этажам и стоякам)</span>';
+      ' <span>(по этажам)</span>';
 
     var cols = [];
     houses.forEach(function (house) {
@@ -441,7 +441,7 @@
 
       var col = multi ? '<h3 class="shm__grid-title">' + esc(bld ? bld.name : '') + '</h3>' : '';
       col += '<div class="shm__grid-wrap"><table class="shm__grid"><tbody>';
-      col += '<tr><td></td>' + risers.map(function (r) { return '<td class="shm__riser-head">Стояк ' + r + '</td>'; }).join('') + '</tr>';
+      col += '<tr><td></td>' + risers.map(function (r) { return '<td class="shm__riser-head">' + r + '</td>'; }).join('') + '</tr>';
       floors.forEach(function (floor) {
         col += '<tr><td class="shm__floor-head">' + floor + ' эт.</td>';
         risers.forEach(function (riser) {
