@@ -142,7 +142,7 @@
 
     var html = this.shmOpen();
     html += '<h2 class="shm-gp__title">' + esc(d.project || 'Генплан') + '</h2>';
-    html += '<p class="shm-gp__sub">Выберите дом на генплане</p>';
+    html += '<p class="shm-gp__sub">Выберите подъезд на генплане</p>';
     html += '<div class="shm-gp">';
     html += '<img class="shm-gp__img" src="' + esc(gp.image || '') + '" alt="Генплан">';
     html += markers;
@@ -166,7 +166,7 @@
     }).join('');
     wrap.innerHTML = '<div class="shm-gp__fallback">Файл <b>genplan.jpg</b> не найден в папке виджета.<br>' +
       'Положите рендер рядом со скриптами — и здесь появятся кликабельные пины.<br><br>' +
-      'Пока выберите дом списком:<br><br>' + btns + '</div>';
+      'Пока выберите подъезд списком:<br><br>' + btns + '</div>';
     wrap.querySelectorAll('[data-bld]').forEach(function (el) {
       el.addEventListener('click', function () { self.showSelection(el.getAttribute('data-bld')); });
     });
@@ -197,7 +197,6 @@
     };
 
     var features = uniq([].concat.apply([], all.map(function (f) { return f.features || []; })));
-    var promos = uniq(all.map(function (f) { return f.promo; }).filter(Boolean));
     var hasGp = d.genplan && d.genplan.buildings.length;
 
     var html = this.shmOpen();
@@ -206,7 +205,7 @@
     // фильтры
     html += '<div class="shm__filters">';
     // дом
-    html += fgroup('Выберите дом', '<select class="shm__select" data-f="house"><option value="all">Все дома</option>' +
+    html += fgroup('Выбрать подъезд', '<select class="shm__select" data-f="house"><option value="all">Все подъезды</option>' +
       d.genplan.buildings.map(function (b) { return '<option value="' + esc(b.id) + '"' + (b.id === this.f.house ? ' selected' : '') + '>' + esc(b.name) + '</option>'; }, this).join('') + '</select>');
     // комнаты
     html += fgroup('Комнат', '<div class="shm__rooms">' + roomTypes.map(function (r) {
@@ -219,9 +218,6 @@
     // особенность
     html += fgroup('Особенность', '<select class="shm__select" data-f="feature"><option value="">Не выбрано</option>' +
       features.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + '</option>'; }).join('') + '</select>');
-    // акция
-    html += fgroup('Акция', '<select class="shm__select" data-f="promo"><option value="">Не выбрано</option>' +
-      promos.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + '</option>'; }).join('') + '</select>');
     html += '<button class="shm__reset" type="button">Сбросить фильтры ✕</button>';
     html += '</div>';
 
@@ -266,7 +262,6 @@
 
     root.querySelector('[data-f="house"]').addEventListener('change', function () { self.f.house = this.value; self.renderResults(); });
     root.querySelector('[data-f="feature"]').addEventListener('change', function () { self.f.feature = this.value; self.renderResults(); });
-    root.querySelector('[data-f="promo"]').addEventListener('change', function () { self.f.promo = this.value; self.renderResults(); });
     root.querySelector('[data-f="sort"]').addEventListener('change', function () { self.f.sort = this.value; self.renderResults(); });
 
     root.querySelectorAll('.shm__room').forEach(function (btn) {
@@ -428,7 +423,7 @@
 
     this.root.querySelector('.shm__rescount').innerHTML = (bld ? esc(bld.name) + ' — ' : '') +
       flats.length + ' ' + plural(flats.length, ['квартира', 'квартиры', 'квартир']) +
-      ' <span>(шахматка показывается по одному дому)</span>';
+      ' <span>(шахматка показывается по одному подъезду)</span>';
 
     var res = this.root.querySelector('.shm__results');
     if (!floors.length) { res.innerHTML = '<div class="shm__empty">Под фильтры ничего не подошло.</div>'; return; }
