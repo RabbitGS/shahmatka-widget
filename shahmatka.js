@@ -90,7 +90,9 @@
         // тема/акцент из данных, если не заданы явно в init
         if (!self.theme && data.theme) self.theme = data.theme;
         if (!self.accent && data.accent) self.accent = data.accent;
-        if (data.genplan && data.genplan.buildings && data.genplan.buildings.length) self.showGenplan();
+        // на мобильном генплан не показываем — сразу к выбору квартир
+        var isMobile = window.matchMedia('(max-width: 600px)').matches;
+        if (!isMobile && data.genplan && data.genplan.buildings && data.genplan.buildings.length) self.showGenplan();
         else self.showSelection('all');
       })
       .catch(function (e) {
@@ -136,10 +138,7 @@
       return '<button class="shm-gp__marker' + (soldout ? ' is-soldout' : '') + '" data-bld="' + esc(b.id) + '" ' +
         'style="left:' + b.xPct + '%;top:' + b.yPct + '%">' +
         tip +
-        '<span class="shm-gp__pill">' +
-          '<b class="shm-gp__num">' + esc(b.id.replace(/\D/g, '')) + '</b>' +
-          '<span class="shm-gp__label">' + esc(b.name) + '<small>' + esc(sub) + '</small></span>' +
-        '</span>' +
+        '<span class="shm-gp__pill">' + esc(b.name) + '<small>' + esc(sub) + '</small></span>' +
         '<span class="shm-gp__pin"></span></button>';
     }).join('');
 
@@ -149,19 +148,14 @@
     html += '<div class="shm-gp">';
     html += '<img class="shm-gp__img" src="' + esc(gp.image || '') + '" alt="Генплан">';
     html += markers;
-    html += '</div>';
-    // на мобильном пины тесно наезжают — дублируем выбор кнопками под картинкой
-    html += '<div class="shm-gp__mobpick">' + gp.buildings.map(function (b) {
-      return '<button class="shm-gp__mbtn" data-bld="' + esc(b.id) + '">' + esc(b.name) + '</button>';
-    }).join('') + '</div>';
-    html += '</div>';
+    html += '</div></div>';
     this.root.innerHTML = html;
 
     var wrap = this.root.querySelector('.shm-gp');
     var img = this.root.querySelector('.shm-gp__img');
     img.addEventListener('error', function () { self.genplanFallback(wrap); });
 
-    this.root.querySelectorAll('[data-bld]').forEach(function (el) {
+    this.root.querySelectorAll('.shm-gp__marker').forEach(function (el) {
       el.addEventListener('click', function () { self.showSelection(el.getAttribute('data-bld')); });
     });
   };
