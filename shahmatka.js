@@ -35,6 +35,41 @@
     return planSvg(flat ? flat.rooms : 0) + '<span class="shm__plan-note">Планировка уточняется в отделе продаж</span>';
   }
 
+  // «Расположение на этаже» — план этажа секции с подсвеченной квартирой
+  function floorMedia(flat) {
+    if (!flat || !flat.floorpin || !flat.floorpin.image) return '';
+    var fp = flat.floorpin;
+    var overlay;
+    if (fp.poly && fp.poly.length > 2) {
+      // подсветка квартиры БЕЗ затемнения плана: фон остаётся ярким
+      // (как план квартиры), выделяем только сам контур — заливка + обводка.
+      var pts = fp.poly.map(function (p) { return p[0] + ',' + p[1]; }).join(' ');
+      overlay =
+        '<svg class="shm__floor-svg" viewBox="0 0 100 100" preserveAspectRatio="none">' +
+          '<polygon class="shm__floor-poly" points="' + pts + '"/>' +
+        '</svg>';
+    } else {
+      // запасной вариант — маркер-точка (если контур не размечен)
+      overlay = '<span class="shm__floor-pin" style="left:' + fp.x + '%;top:' + fp.y + '%"><i></i></span>';
+    }
+    return '<div class="shm__floor-map">' +
+        '<img src="' + esc(fp.image) + '" alt="План этажа" loading="lazy">' +
+        overlay +
+      '</div>';
+  }
+
+  // блок из двух картинок одного размера: планировка квартиры + план этажа
+  function mediaBlock(flat) {
+    var floor = floorMedia(flat);
+    var html = '<div class="shm__media">' +
+      '<div class="shm__media-item"><div class="shm__media-cap">Планировка квартиры</div>' +
+        '<div class="shm__plan">' + planMedia(flat) + '</div></div>';
+    if (floor) {
+      html += '<div class="shm__media-item"><div class="shm__media-cap">Расположение на этаже</div>' + floor + '</div>';
+    }
+    return html + '</div>';
+  }
+
   // схематичная планировка (заглушка вместо реального чертежа)
   function planSvg(rooms) {
     var st = 'stroke="#16384c" stroke-width="3" fill="none" stroke-linejoin="round"';
@@ -80,6 +115,36 @@
     return '<div class="' + cls + '"' + style + '>';
   };
 
+  // --- запоминание экрана в адресе страницы (переживает F5, даёт диплинк) ---
+  Widget.prototype.readHash = function () {
+    var o = {};
+    (location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) {
+      var p = kv.split('='); if (p[0]) o[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || '');
+    });
+    return o;
+  };
+  Widget.prototype.writeHash = function (o) {
+    var parts = [];
+    ['screen', 'house', 'view', 'flat'].forEach(function (k) {
+      if (o[k]) parts.push(k + '=' + encodeURIComponent(o[k]));
+    });
+    var h = parts.length ? '#' + parts.join('&') : '';
+    if (h === (location.hash || '')) return;
+    try { history.replaceState(null, '', location.pathname + location.search + h); }
+    catch (e) { location.hash = h; }
+  };
+  // собрать текущее состояние в адрес (генплан = пустой хэш = экран по умолчанию)
+  Widget.prototype.persist = function () {
+    var o = {};
+    if (this.screen === 'selection') {
+      o.screen = 'selection';
+      o.house = (this.f && this.f.house) || 'all';
+      o.view = this.view || 'cards';
+      if (this.openFlatId) o.flat = this.openFlatId;
+    }
+    this.writeHash(o);
+  };
+
   Widget.prototype.load = function () {
     var self = this;
     this.root.innerHTML = this.shmOpen() + '<div class="shm__error">Загрузка…</div></div>';
@@ -92,7 +157,12 @@
         if (!self.accent && data.accent) self.accent = data.accent;
         // на мобильном генплан не показываем — сразу к выбору квартир
         var isMobile = window.matchMedia('(max-width: 600px)').matches;
-        if (!isMobile && data.genplan && data.genplan.buildings && data.genplan.buildings.length) self.showGenplan();
+        var hasGp = data.genplan && data.genplan.buildings && data.genplan.buildings.length;
+        // восстановить экран из адреса (после F5 не выкидывать на генплан)
+        var st = self.readHash();
+        if (st.flat) { self.showSelection(st.house || 'all', st.view || 'cards'); self.openFlatPanel(st.flat); }
+        else if (st.screen === 'selection') self.showSelection(st.house || 'all', st.view || 'cards');
+        else if (!isMobile && hasGp) self.showGenplan();
         else self.showSelection('all');
       })
       .catch(function (e) {
@@ -158,6 +228,8 @@
     this.root.querySelectorAll('.shm-gp__marker').forEach(function (el) {
       el.addEventListener('click', function () { self.showSelection(el.getAttribute('data-bld')); });
     });
+
+    this.screen = 'genplan'; this.openFlatId = null; this.persist();
   };
 
   // если genplan.jpg ещё не положили — показываем список домов кнопками
@@ -177,18 +249,24 @@
   /* ====================================================== */
   /*  ЭКРАН 2 — ВЫБОР (фильтры + карточки/шахматка)           */
   /* ====================================================== */
-  Widget.prototype.showSelection = function (buildingId) {
+  Widget.prototype.showSelection = function (buildingId, initView) {
     var d = this.data, all = d.flats;
-    this.view = 'cards';
+    this.view = initView || 'cards';
+    this.screen = 'selection';
+    this.openFlatId = null;
 
-    var roomTypes = uniq(all.map(function (f) { return f.rooms; })).sort(function (a, b) { return a - b; });
+    // «фантомы» (проданные вне фида — nodata) участвуют только в сетке-шахматке;
+    // фильтры/карточки/ипотека строим по реальным квартирам с данными.
+    var real = all.filter(function (f) { return !f.nodata; });
+
+    var roomTypes = uniq(real.map(function (f) { return f.rooms; })).sort(function (a, b) { return a - b; });
     // Границы расширяем НАРУЖУ до кратного шага, иначе правый ползунок
     // не доходит до реального max и отрезает крайние квартиры.
     // Шаги целочисленные (площадь — в целых м²): дробный шаг + float ломают
     // достижимость max и дают хвост нулей в значении.
     function rng(key, step) {
-      var lo = Math.min.apply(0, all.map(function (f) { return f[key]; }));
-      var hi = Math.max.apply(0, all.map(function (f) { return f[key]; }));
+      var lo = Math.min.apply(0, real.map(function (f) { return f[key]; }));
+      var hi = Math.max.apply(0, real.map(function (f) { return f[key]; }));
       return [Math.floor(lo / step) * step, Math.ceil((hi - 1e-9) / step) * step];
     }
     var bounds = { price: rng('price', 250000), area: rng('area', 1), floor: rng('floor', 1) };
@@ -198,7 +276,7 @@
       floor: bounds.floor.slice(), feature: '', promo: '', sort: 'price-asc'
     };
 
-    var features = uniq([].concat.apply([], all.map(function (f) { return f.features || []; })));
+    var features = uniq([].concat.apply([], real.map(function (f) { return f.features || []; })));
     var hasGp = d.genplan && d.genplan.buildings.length;
 
     var html = this.shmOpen();
@@ -227,9 +305,10 @@
     html += '<div class="shm__resbar">';
     html += '<div class="shm__rescount"></div>';
     html += '<div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">';
-    html += '<div class="shm__tabs"><button class="shm__tab is-active" data-view="cards">Планировки</button>' +
-      '<button class="shm__tab" data-view="grid">Шахматка</button>' +
-      '<button class="shm__tab" data-view="mortgage">Ипотека</button></div>';
+    var v = this.view;
+    html += '<div class="shm__tabs"><button class="shm__tab' + (v === 'cards' ? ' is-active' : '') + '" data-view="cards">Планировки</button>' +
+      '<button class="shm__tab' + (v === 'grid' ? ' is-active' : '') + '" data-view="grid">Шахматка</button>' +
+      '<button class="shm__tab' + (v === 'mortgage' ? ' is-active' : '') + '" data-view="mortgage">Ипотека</button></div>';
     html += '<div class="shm__sort">Сортировка <select class="shm__sortsel" data-f="sort">' +
       '<option value="price-asc">Цена ↑</option><option value="price-desc">Цена ↓</option>' +
       '<option value="area-asc">Площадь ↑</option><option value="area-desc">Площадь ↓</option></select></div>';
@@ -242,6 +321,7 @@
     this.root.innerHTML = html;
     this.bindSelection();
     this.renderResults();
+    this.persist();
   };
 
   function fgroup(label, inner) { return '<div class="shm__fgroup"><span class="shm__flabel">' + label + '</span>' + inner + '</div>'; }
@@ -262,7 +342,7 @@
     var back = root.querySelector('.shm__back');
     if (back) back.addEventListener('click', function () { self.showGenplan(); });
 
-    root.querySelector('[data-f="house"]').addEventListener('change', function () { self.f.house = this.value; self.renderResults(); });
+    root.querySelector('[data-f="house"]').addEventListener('change', function () { self.f.house = this.value; self.renderResults(); self.persist(); });
     root.querySelector('[data-f="feature"]').addEventListener('change', function () { self.f.feature = this.value; self.renderResults(); });
     root.querySelector('[data-f="sort"]').addEventListener('change', function () { self.f.sort = this.value; self.renderResults(); });
 
@@ -285,6 +365,7 @@
         root.querySelectorAll('.shm__tab[data-view]').forEach(function (x) { x.classList.remove('is-active'); });
         t.classList.add('is-active');
         self.renderResults();
+        self.persist();
       });
     });
 
@@ -320,9 +401,10 @@
     this.showSelection('all'); // перерисовать панель целиком (сбросить ползунки/кнопки)
   };
 
-  Widget.prototype.filtered = function (includeSold) {
+  Widget.prototype.filtered = function (includeSold, includeNodata) {
     var f = this.f;
     return this.data.flats.filter(function (x) {
+      if (x.nodata && !includeNodata) return false;   // фантом — только в сетке
       if (!includeSold && x.status === 'sold') return false;
       if (f.house !== 'all' && x.building !== f.house) return false;
       if (Object.keys(f.rooms).length && !f.rooms[x.rooms]) return false;
@@ -380,10 +462,12 @@
       var minP = Math.min.apply(0, g.map(function (x) { return x.price; }));
       var floors = compressFloors(g.map(function (x) { return x.floor; }));
       var promo = g.map(function (x) { return x.promo; }).filter(Boolean)[0];
+      var isPromo = g.some(function (x) { return x.status === 'promo'; });
       var fav = !!self.fav[k];
       return '<div class="shm__card" data-key="' + esc(k) + '">' +
         '<div class="shm__card-plan">' +
           '<span class="shm__rooms-badge">' + roomsLabel(one.rooms) + '</span>' +
+          (isPromo ? '<span class="shm__promo-badge">Акция</span>' : '') +
           '<button class="shm__heart' + (fav ? ' is-on' : '') + '" data-fav="' + esc(k) + '">' + (fav ? '♥' : '♡') + '</button>' +
           planMedia(one) +
         '</div>' +
@@ -413,7 +497,7 @@
   /* ---------- вкладка «Шахматка» ---------- */
   Widget.prototype.renderGrid = function () {
     var self = this, d = this.data;
-    var all = this.filtered(true);
+    var all = this.filtered(true, true);   // в сетке — и проданные, и фантомы
     var res = this.root.querySelector('.shm__results');
 
     // какие подъезды показывать: выбранный один или все (при «Все подъезды»)
@@ -448,10 +532,13 @@
           var flat = flats.filter(function (x) { return x.floor === floor && x.riser === riser; })[0];
           if (!flat) { col += '<td><div class="shm__cell shm__cell--empty"></div></td>'; return; }
           var color = (d.statuses[flat.status] || {}).color || '#999';
-          var cls = 'shm__cell' + (flat.status === 'sold' ? ' shm__cell--sold' : '');
-          col += '<td><button class="' + cls + '" style="background:' + color + '" data-id="' + esc(flat.id) + '" data-status="' + flat.status + '">' +
+          var isNodata = !!flat.nodata;
+          var cls = 'shm__cell' + (flat.status === 'sold' ? ' shm__cell--sold' : '') + (isNodata ? ' shm__cell--nodata' : '');
+          // фантом (проданная вне фида): номер + «продана», без площади и без клика
+          var meta = isNodata ? 'продана' : (roomsShort(flat.rooms) + ' · ' + flat.area);
+          col += '<td><button class="' + cls + '" style="background:' + color + '" data-id="' + esc(flat.id) + '" data-status="' + flat.status + '"' + (isNodata ? ' data-nodata="1"' : '') + '>' +
             '<span class="shm__cell-num">№' + esc(flat.number) + '</span>' +
-            '<span class="shm__cell-meta">' + roomsShort(flat.rooms) + ' · ' + flat.area + '</span></button></td>';
+            '<span class="shm__cell-meta">' + meta + '</span></button></td>';
         });
         col += '</tr>';
       });
@@ -460,7 +547,7 @@
     });
 
     if (!cols.length) { res.innerHTML = '<div class="shm__empty">Под фильтры ничего не подошло.</div>'; return; }
-    var legend = '<div class="shm__legend">' + ['free', 'reserved', 'sold'].map(function (k) {
+    var legend = '<div class="shm__legend">' + ['free', 'reserved', 'promo', 'sold'].map(function (k) {
       var s = d.statuses[k]; if (!s) return '';
       return '<span class="shm__leg"><i style="background:' + s.color + '"></i>' + esc(s.label) + '</span>';
     }).join('') + '</div>';
@@ -479,7 +566,7 @@
     var baseRate = m.rate != null ? m.rate : 0.06;
     var years0 = m.years != null ? m.years : 30;
     var down0 = m.down != null ? m.down : 0.2;
-    var prices = d.flats.map(function (f) { return f.price; });
+    var prices = d.flats.filter(function (f) { return !f.nodata; }).map(function (f) { return f.price; });
     var minP = Math.min.apply(0, prices), maxP = Math.max.apply(0, prices);
     if (!this.mort) this.mort = { cost: minP, down: Math.round(down0 * 100), years: years0 };
     var st = this.mort, banks = d.banks || null;
@@ -541,6 +628,7 @@
   /* ---------- панель: группа планировок ---------- */
   Widget.prototype.openGroupPanel = function (group) {
     var self = this, d = this.data, cur = d.currency || '₽';
+    this.openFlatId = null;
     var one = group[0], bld = this.buildingById(one.building);
     var sorted = group.slice().sort(function (a, b) { return a.floor - b.floor; });
     var minP = Math.min.apply(0, group.map(function (x) { return x.price; }));
@@ -549,7 +637,7 @@
     html += '<h3 class="shm__panel-title">' + roomsLabel(one.rooms) + ' · ' + one.area + ' м²</h3>';
     html += '<p class="shm__panel-sub">' + esc(bld ? bld.name : '') + '</p>';
     html += '</div><button class="shm__close" aria-label="Закрыть">×</button></div>';
-    html += '<div class="shm__plan">' + planMedia(one) + '</div>';
+    html += mediaBlock(one);
     html += '<div class="shm__price"><div class="shm__price-val">от ' + money(minP) + ' ' + cur + '</div>';
     html += '<div class="shm__price-meta">' + money(minP / one.area) + ' ' + cur + ' / м² · доступно ' + group.length + '</div></div>';
     html += '<div style="padding:0 22px 6px;font-size:13px;color:var(--shm-muted)">Свободные квартиры этой планировки:</div>';
@@ -577,6 +665,7 @@
     var self = this, d = this.data, cur = d.currency || '₽';
     var flat = d.flats.filter(function (f) { return f.id === id; })[0];
     if (!flat) return;
+    this.openFlatId = id;
     var st = d.statuses[flat.status] || {}, bld = this.buildingById(flat.building);
     var deadline = flat.deadline || (bld && bld.deadline) || d.deadline;
     var mo = mortgage(flat.price, d.mortgage);
@@ -590,7 +679,7 @@
     html += '<h3 class="shm__panel-title">' + roomsLabel(flat.rooms) + ' · ' + flat.area + ' м²</h3>';
     html += '<p class="shm__panel-sub">Кв. №' + esc(flat.number) + (bld ? ' · ' + esc(bld.name) : '') + ' · ' + flat.floor + ' этаж</p>';
     html += '</div><button class="shm__close" aria-label="Закрыть">×</button></div>';
-    html += '<div class="shm__plan">' + planMedia(flat) + '</div>';
+    html += mediaBlock(flat);
     html += '<div class="shm__lot-tags">' + tags + '</div>';
     html += '<div class="shm__price"><div class="shm__price-row">';
     html += '<span class="shm__price-val">' + money(flat.price) + ' ' + cur + '</span>';
@@ -616,6 +705,7 @@
       btn.addEventListener('click', function () { self.lead(flat.id); });
     });
     this.openPanel();
+    this.persist();
   };
 
   Widget.prototype.lead = function (id) {
@@ -627,10 +717,35 @@
   Widget.prototype.openPanel = function () {
     this.root.querySelector('.shm__overlay').classList.add('is-open');
     this.root.querySelector('.shm__panel').classList.add('is-open');
+    document.documentElement.style.overflow = 'hidden';   // не скроллить страницу под модалкой
+    document.body.style.overflow = 'hidden';
+    this.bindLightbox();
   };
   Widget.prototype.closePanel = function () {
     var o = this.root.querySelector('.shm__overlay'), p = this.root.querySelector('.shm__panel');
     if (o) o.classList.remove('is-open'); if (p) p.classList.remove('is-open');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    if (this.openFlatId) { this.openFlatId = null; this.persist(); }
+  };
+
+  // клик по картинке в модалке → открыть её на весь экран (лайтбокс)
+  Widget.prototype.bindLightbox = function () {
+    var self = this;
+    this.root.querySelectorAll('.shm__media .shm__plan, .shm__media .shm__floor-map').forEach(function (box) {
+      box.addEventListener('click', function () { self.openLightbox(box.innerHTML); });
+    });
+  };
+  Widget.prototype.openLightbox = function (inner) {
+    var self = this;
+    var lb = document.createElement('div');
+    lb.className = 'shm__lightbox';
+    lb.innerHTML = '<button class="shm__lightbox-close" aria-label="Закрыть">×</button>' +
+      '<div class="shm__lightbox-inner">' + inner + '</div>';
+    (this.root.querySelector('.shm') || this.root).appendChild(lb);
+    requestAnimationFrame(function () { lb.classList.add('is-open'); });
+    function close() { lb.classList.remove('is-open'); setTimeout(function () { lb.remove(); }, 200); }
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target.closest('.shm__lightbox-close')) close(); });
   };
 
   function plural(n, forms) {
